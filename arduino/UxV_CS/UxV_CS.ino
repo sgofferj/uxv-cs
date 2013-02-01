@@ -2,6 +2,7 @@
 #include <AP_Common.h>
 #include <AP_Math.h>
 #include <GCS_MAVLink.h>
+#include <EDIPTFT.h>
 
 #define BLACK 1
 #define BLUE 2
@@ -29,6 +30,7 @@ FastSerialPort0(Serial);
 FastSerialPort1(Serial1);
 FastSerialPort2(Serial2);
 FastSerialPort3(Serial3);
+EDIPTFT ea(3,0);
 
 #define DIST_CONV 1.0   // For distance display in meters choose 0.0, for feet 3.2808
 
@@ -69,10 +71,10 @@ int currentSMode=0;
 int currentNMode=0;
 int gpsfix=0;
 int beat=0;
-byte connstat=0;
+int connstat=0;
 unsigned long mav_utime=0;
 
-byte GCS_MODE = 0;
+int GCS_MODE = 0;
 
 void setup() {
   Serial.begin(57600);
@@ -80,11 +82,11 @@ void setup() {
   Serial1.begin(57600);
   Serial3.begin(115200);
   delay(250);
-  ea_Clear();
-  ea_Clear();
-  ea_Clear();
+  ea.clear();
+  ea.clear();
+  ea.clear();
   delay(250);
-  ea_cursorOn(false);
+  ea.cursor(false);
   drawSplash();
   drawButtons();
 }
@@ -116,20 +118,20 @@ void parseSerial() {
     if (data == 'A') {
       data = Serial3.read();
       data = Serial3.read();
-      setMode(data);
+      setMode((int)data);
     }
   }
 }
 
-void setMode(char mode) {
+void setMode(int mode) {
   switch (GCS_MODE) {
     case 7 : {
-      ea_deleteBargraph(1,1);
+      ea.deleteBargraph(1,1);
       break;
     }
   }
-  GCS_MODE = (byte)mode;
-  ea_Clear();
+  GCS_MODE = mode;
+  ea.clear();
   delay(5);
 
   drawButtons();
@@ -144,86 +146,86 @@ void setMode(char mode) {
 }    
 
 void drawStatusbar() {
-  ea_setTextFont(4);
-  ea_setTextColor(WHITE,BLACK);
-  ea_drawText(240,4,'C',modeName[GCS_MODE]);
-  if (connstat == 1) ea_setTextColor(GREEN,BLACK);
-  else ea_setTextColor(RED,BLACK);
-  ea_drawText(420,4,'C',"MAVL");
+  ea.setTextFont(4);
+  ea.setTextColor(WHITE,BLACK);
+  ea.drawText(240,4,'C',modeName[GCS_MODE]);
+  if (connstat == 1) ea.setTextColor(GREEN,BLACK);
+  else ea.setTextColor(RED,BLACK);
+  ea.drawText(420,4,'C',"MAVL");
   switch (gpsfix) {
     case 0 : {
-      ea_setTextColor(RED,BLACK);
+      ea.setTextColor(RED,BLACK);
       break;
     }
     case 1 : {
-      ea_setTextColor(RED,BLACK);
+      ea.setTextColor(RED,BLACK);
       break;
     }
     case 2 : {
-      ea_setTextColor(YELLOW,BLACK);
+      ea.setTextColor(YELLOW,BLACK);
       break;
     }
     case 3 : {
-      ea_setTextColor(GREEN,BLACK);
+      ea.setTextColor(GREEN,BLACK);
       break;
     }
   }    
-  ea_drawText(479,4,'R',GPSFIX[gpsfix]);
-  ea_setLine(WHITE,1);
-  ea_drawLine(0,18,480,18);
+  ea.drawText(479,4,'R',GPSFIX[gpsfix]);
+  ea.setLineColor(WHITE,1);
+  ea.drawLine(0,18,480,18);
 }
 
 void drawButtons() {
-  ea_removeTouchArea(0,1);
-  ea_setTouchkeyLabelColors(BLACK,BLACK);
-  ea_setTouchkeyFont(5);
-  if (GCS_MODE==1) ea_setTouchkeyColors(MINT,BLACK,MINT,YELLOW,BLACK,YELLOW);
-  else ea_setTouchkeyColors(WHITE,BLACK,WHITE,YELLOW,BLACK,YELLOW);
-  ea_defineTouchKey(  0,248, 60,272,0,1,"OVRV");
-  if (GCS_MODE==2) ea_setTouchkeyColors(MINT,BLACK,MINT,YELLOW,BLACK,YELLOW);
-  else ea_setTouchkeyColors(WHITE,BLACK,WHITE,YELLOW,BLACK,YELLOW);
-  ea_defineTouchKey( 70,248,130,272,0,2,"MOD2");
-  if (GCS_MODE==3) ea_setTouchkeyColors(MINT,BLACK,MINT,YELLOW,BLACK,YELLOW);
-  else ea_setTouchkeyColors(WHITE,BLACK,WHITE,YELLOW,BLACK,YELLOW);
-  ea_defineTouchKey(140,248,200,272,0,3,"MOD3");
-  if (GCS_MODE==4) ea_setTouchkeyColors(MINT,BLACK,MINT,YELLOW,BLACK,YELLOW);
-  else ea_setTouchkeyColors(WHITE,BLACK,WHITE,YELLOW,BLACK,YELLOW);
-  ea_defineTouchKey(210,248,270,272,0,4,"MOD4");
-  if (GCS_MODE==5) ea_setTouchkeyColors(MINT,BLACK,MINT,YELLOW,BLACK,YELLOW);
-  else ea_setTouchkeyColors(WHITE,BLACK,WHITE,YELLOW,BLACK,YELLOW);
-  ea_defineTouchKey(280,248,340,272,0,5,"MOD5");
-  if (GCS_MODE==6) ea_setTouchkeyColors(MINT,BLACK,MINT,YELLOW,BLACK,YELLOW);
-  else ea_setTouchkeyColors(WHITE,BLACK,WHITE,YELLOW,BLACK,YELLOW);
-  ea_defineTouchKey(350,248,410,272,0,6,"MOD6");
-  if (GCS_MODE==7) ea_setTouchkeyColors(MINT,BLACK,MINT,YELLOW,BLACK,YELLOW);
-  else ea_setTouchkeyColors(WHITE,BLACK,WHITE,YELLOW,BLACK,YELLOW);
-  ea_defineTouchKey(420,248,480,272,0,7,"Setup");
+  ea.removeTouchArea(0,1);
+  ea.setTouchkeyLabelColors(BLACK,BLACK);
+  ea.setTouchkeyFont(5);
+  if (GCS_MODE==1) ea.setTouchkeyColors(MINT,BLACK,MINT,YELLOW,BLACK,YELLOW);
+  else ea.setTouchkeyColors(WHITE,BLACK,WHITE,YELLOW,BLACK,YELLOW);
+  ea.defineTouchKey(  0,248, 60,272,0,1,"OVRV");
+  if (GCS_MODE==2) ea.setTouchkeyColors(MINT,BLACK,MINT,YELLOW,BLACK,YELLOW);
+  else ea.setTouchkeyColors(WHITE,BLACK,WHITE,YELLOW,BLACK,YELLOW);
+  ea.defineTouchKey( 70,248,130,272,0,2,"MOD2");
+  if (GCS_MODE==3) ea.setTouchkeyColors(MINT,BLACK,MINT,YELLOW,BLACK,YELLOW);
+  else ea.setTouchkeyColors(WHITE,BLACK,WHITE,YELLOW,BLACK,YELLOW);
+  ea.defineTouchKey(140,248,200,272,0,3,"MOD3");
+  if (GCS_MODE==4) ea.setTouchkeyColors(MINT,BLACK,MINT,YELLOW,BLACK,YELLOW);
+  else ea.setTouchkeyColors(WHITE,BLACK,WHITE,YELLOW,BLACK,YELLOW);
+  ea.defineTouchKey(210,248,270,272,0,4,"MOD4");
+  if (GCS_MODE==5) ea.setTouchkeyColors(MINT,BLACK,MINT,YELLOW,BLACK,YELLOW);
+  else ea.setTouchkeyColors(WHITE,BLACK,WHITE,YELLOW,BLACK,YELLOW);
+  ea.defineTouchKey(280,248,340,272,0,5,"MOD5");
+  if (GCS_MODE==6) ea.setTouchkeyColors(MINT,BLACK,MINT,YELLOW,BLACK,YELLOW);
+  else ea.setTouchkeyColors(WHITE,BLACK,WHITE,YELLOW,BLACK,YELLOW);
+  ea.defineTouchKey(350,248,410,272,0,6,"MOD6");
+  if (GCS_MODE==7) ea.setTouchkeyColors(MINT,BLACK,MINT,YELLOW,BLACK,YELLOW);
+  else ea.setTouchkeyColors(WHITE,BLACK,WHITE,YELLOW,BLACK,YELLOW);
+  ea.defineTouchKey(420,248,480,272,0,7,"Setup");
 }  
 
 void drawSetup() {
-  ea_defineBargraph ('O',1,430,40,470,220,0,100,5);
-  ea_setTextColor(WHITE,BLACK);
-  ea_drawText(450,225,'C',"Light");
-  ea_updateBargraph(1,66);
-  ea_makeBargraphTouch(1);
-  ea_linkBargraphLight(1);
+  ea.defineBargraph ('O',1,430,40,470,220,0,100,5);
+  ea.setTextColor(WHITE,BLACK);
+  ea.drawText(450,225,'C',"Light");
+  ea.updateBargraph(1,66);
+  ea.makeBargraphTouch(1);
+  ea.linkBargraphLight(1);
 }
 
 void drawUAVdata() {
-  ea_setTextFont(5);
-  ea_setTextColor(YELLOW,BLACK);
-  ea_drawText(0,24,'L',"LON: "+String(longitude));
-  ea_drawText(0,44,'L',"LAT: "+String(latitude));
-  ea_drawText(0,64,'L',"ALT: "+String(altitude/1000)+"m");
+  ea.setTextFont(5);
+  ea.setTextColor(YELLOW,BLACK);
+  ea.drawText(0,24,'L',"LON: "+String(longitude));
+  ea.drawText(0,44,'L',"LAT: "+String(latitude));
+  ea.drawText(0,64,'L',"ALT: "+String(altitude/1000)+"m");
 }
 
 void drawSplash() {
-  ea_setTextFont(6);
-  ea_setTextColor(GRASSGREEN,BLACK);
-  ea_drawText(240,50,'C',"UxV Control Station");
-  ea_drawText(240,95,'C',"V0.1");
-  ea_drawText(240,140,'C',"(C)2013 Stefan Gofferje");
-  ea_drawText(240,185,'C',"Published under the Gnu GPL");
+  ea.setTextFont(6);
+  ea.setTextColor(GRASSGREEN,BLACK);
+  ea.drawText(240,50,'C',"UxV Control Station");
+  ea.drawText(240,95,'C',"V0.1");
+  ea.drawText(240,140,'C',"(C)2013 Stefan Gofferje");
+  ea.drawText(240,185,'C',"Published under the Gnu GPL");
 }
   
   
