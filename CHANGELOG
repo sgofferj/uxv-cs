@@ -7,5 +7,9 @@ http://stefan.gofferje.net/uxv-cs
 Changelog
 --------------------------------------------------------------------
 
+---- 01feb2013
+- Basic MAVLink functionality implemented
+- Basic display framework implemented
+
 ---- 13jan2013
 Project start
