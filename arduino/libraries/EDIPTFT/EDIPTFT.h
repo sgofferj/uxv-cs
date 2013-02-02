@@ -24,7 +24,22 @@
 #ifndef EDIPTFT_h
 #define EDIPTFT_h
 
-#include <Arduino.h>
+#define EA_BLACK 1
+#define EA_BLUE 2
+#define EA_RED 3
+#define EA_GREEN 4
+#define EA_PURPLE 5
+#define EA_CYAN 6
+#define EA_YELLOW 7
+#define EA_WHITE 8
+#define EA_DARKGREY 9
+#define EA_ORANGE 10
+#define EA_LILA 11
+#define EA_DARKPURPLE 12
+#define EA_MINT 13
+#define EA_GRASSGREEN 14
+#define EA_LIGHTBLUE 15
+#define EA_LIGHTGREY 16
 
 class EDIPTFT {
   public:

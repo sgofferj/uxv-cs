@@ -21,6 +21,7 @@
 //      Boston, MA 02110-1301 USA
 //
 
+#include <FastSerial.h>
 #include <Arduino.h>
 #include <EDIPTFT.h>
 
