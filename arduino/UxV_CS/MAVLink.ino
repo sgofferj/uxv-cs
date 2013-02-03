@@ -1,6 +1,9 @@
 
 void gcs_handleMessage(mavlink_message_t* msg)
 {
+//  Serial.println();
+//  Serial.print("Message ID: ");
+//  Serial.println(msg->msgid);
   switch (msg->msgid) {
     case MAVLINK_MSG_ID_HEARTBEAT:
     {
@@ -10,6 +13,7 @@ void gcs_handleMessage(mavlink_message_t* msg)
       if ((*msg).sysid != 0xff) { // do not process mission planner heartbeats if we have two receiver xbees
         received_sysid = (*msg).sysid; // save the sysid and compid of the received heartbeat for use in sending new messages
         received_compid = (*msg).compid;
+        bmode=packet.base_mode;
       }
       break;
     }
@@ -28,20 +32,36 @@ void gcs_handleMessage(mavlink_message_t* msg)
       // decode
       mavlink_gps_raw_int_t packet;
       mavlink_msg_gps_raw_int_decode(msg, &packet);
-      latitude = packet.lat;
-      longitude = packet.lon;
-      velocity = packet.vel;
-      altitude = packet.alt;
       gpsfix = packet.fix_type;
       mav_utime = packet.time_usec;
+      numSats = packet.satellites_visible;
+      status_gps=1;
+      break;
+    }
+    case MAVLINK_MSG_ID_GLOBAL_POSITION_INT:
+    {
+      // decode
+      mavlink_global_position_int_t packet;
+      mavlink_msg_global_position_int_decode(msg, &packet);
+      latitude = packet.lat;
+      longitude = packet.lon;
+      altitude = packet.alt;
+      status_gps=1;
       break;
     }
     case MAVLINK_MSG_ID_GPS_STATUS:
     {
       mavlink_gps_status_t packet;
       mavlink_msg_gps_status_decode(msg, &packet);        
-      numSats = packet.satellites_visible;
       break;
+    }
+    case MAVLINK_MSG_ID_VFR_HUD:
+    {
+      mavlink_vfr_hud_t packet;
+      mavlink_msg_vfr_hud_decode(msg, &packet);        
+      heading = packet.heading;
+      Serial.println("---------- HUD");
+     break;
     }
     case MAVLINK_MSG_ID_RAW_PRESSURE:
     {
@@ -61,9 +81,11 @@ void gcs_handleMessage(mavlink_message_t* msg)
   }
 }
 
-void gcs_update()
+boolean gcs_update()
 {
-    connstat=0;
+    boolean result = false;
+    status_mavlink=0;
+    status_gps=0;
     // receive new packets
     mavlink_message_t msg;
     mavlink_status_t status;
@@ -72,12 +94,16 @@ void gcs_update()
     while(Serial1.available())
     {
         uint8_t c = Serial1.read();
+//        Serial.print((byte)c,HEX);
+//        Serial.print(" ");
         // Try to get a new message
         if(mavlink_parse_char(0, c, &msg, &status)) {
           gcs_handleMessage(&msg);
-          connstat = 1;
+          status_mavlink = 1;
+          result=true;
         }
     }
+    return result;
 }
 
 void send_message(mavlink_message_t* msg)
@@ -99,6 +125,9 @@ void start_feeds()
   mavlink_msg_request_data_stream_pack(127, 0, &msg, received_sysid, received_compid, MAV_DATA_STREAM_EXTRA1, MAV_DATA_STREAM_EXTRA1_RATE, MAV_DATA_STREAM_EXTRA1_ACTIVE);
   send_message(&msg);
   delay(10);
+  mavlink_msg_request_data_stream_pack(127, 0, &msg, received_sysid, received_compid, MAV_DATA_STREAM_EXTRA2, MAV_DATA_STREAM_EXTRA2_RATE, MAV_DATA_STREAM_EXTRA2_ACTIVE);
+  send_message(&msg);
+  delay(10);
   mavlink_msg_request_data_stream_pack(127, 0, &msg, received_sysid, received_compid, MAV_DATA_STREAM_EXTENDED_STATUS, MAV_DATA_STREAM_EXTENDED_STATUS_RATE, MAV_DATA_STREAM_EXTENDED_STATUS_ACTIVE);
   send_message(&msg);
   delay(10);
@@ -106,6 +135,9 @@ void start_feeds()
   send_message(&msg);
   delay(10);
   mavlink_msg_request_data_stream_pack(127, 0, &msg, received_sysid, received_compid, MAV_DATA_STREAM_POSITION, MAV_DATA_STREAM_POSITION_RATE, MAV_DATA_STREAM_POSITION_ACTIVE);
+  send_message(&msg);
+  delay(10);
+  mavlink_msg_request_data_stream_pack(127, 0, &msg, received_sysid, received_compid, MAV_DATA_STREAM_RC_CHANNELS, 0, 0);
   send_message(&msg);
 }
 

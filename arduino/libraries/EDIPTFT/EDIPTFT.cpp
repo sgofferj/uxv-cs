@@ -136,10 +136,13 @@ void EDIPTFT::sendSmall(char* data, char len) {
       bcc = bcc + data[i];
     }
     sendByte(bcc);
-    delay(6);
+    waitBytesAvailable();
     if (bytesAvailable() > 0) {
       if (readByte() == ACK) ok = 1;
-      else ok = 0;
+      else {
+	Serial.println("NAK");
+	ok = 0;
+      }
     }
     else {
       delay(2000);
