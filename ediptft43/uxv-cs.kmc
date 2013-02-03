@@ -1,4 +1,4 @@
-eDIPTFT43-A "Status on delivery" ; define eDIP, "Projectname" max. 32 character
+eDIPTFT43-A "UxV COntrol Station" ; define eDIP, "Projectname" max. 32 character
 ;brings the display back to ex-works condition with it's standard-fonts 1..8, standard-pattern and standard-border
 
 AutoScan: 1 			; autoscan for correct baud rate to connect to eDIP on COM/USB
@@ -16,6 +16,8 @@ include <..\default_font.kmi>
 include <..\default_pattern.kmi>
 include <..\default_border.kmi>
 
+;-------------------------------------------------------------------------------
+Instrument: 1 <compass.I16>
 ;-------------------------------------------------------------------------------
 
 MnAutoStart = 0
