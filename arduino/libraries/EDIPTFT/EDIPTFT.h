@@ -41,10 +41,19 @@
 #define EA_LIGHTBLUE 15
 #define EA_LIGHTGREY 16
 
+#define NAK 0x15
+#define ACK 0x06
+
 class EDIPTFT {
   public:
     EDIPTFT(int port, int smallprotocol);
-    void sendData(char* data, int len);
+    char readByte();
+    char waitandreadByte();
+    unsigned char datainBuffer();
+    void readBuffer(char* data);
+    void smallProtoSelect(char address);
+    void smallProtoDeselect(char address);
+    void sendData(char* data, char len);
     void clear();
     void invert();
     void setDisplayColor(char fg, char bg);
@@ -58,6 +67,9 @@ class EDIPTFT {
     void makeBargraphTouch(char no);
     void linkBargraphLight(char no);
     void deleteBargraph(char no,char n1);
+    void defineInstrument(char no, int x1, int y1, char image, char angle, char sv, char ev);
+    void updateInstrument(char no, char val);
+    void deleteInstrument(char no, char n1, char n2);
     void setTextColor(char fg, char bg);
     void setTextFont(char font);
     void setTextAngle(char angle);
@@ -74,6 +86,10 @@ class EDIPTFT {
   private:
     int _port;
     int _smallprotocol;
-    void sendSmall(char* data, int len);
+    unsigned char bytesAvailable();
+    void waitBytesAvailable();
+    void sendByte(char data);
+    void sendSmall(char* data, char len);
+    void sendSmallDC2(char* data, char len);
 };
 #endif

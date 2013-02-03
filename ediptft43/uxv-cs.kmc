@@ -1,0 +1,36 @@
+eDIPTFT43-A "Status on delivery" ; define eDIP, "Projectname" max. 32 character
+;brings the display back to ex-works condition with it's standard-fonts 1..8, standard-pattern and standard-border
+
+AutoScan: 1 			; autoscan for correct baud rate to connect to eDIP on COM/USB
+
+;COM1: 115200				; program eDIP on COMx with 115200 Baud
+USB: 230400, "eDIP Programmer"	; use EA 9777-USB eDIP Programmer and program eDIP with 230400 baud
+
+;VERIFY				; verify after program
+
+;------------------------------------------------------------------------------
+; load defaults
+
+include <..\default_constant.kmi>	; double click to open
+include <..\default_font.kmi>
+include <..\default_pattern.kmi>
+include <..\default_border.kmi>
+
+;-------------------------------------------------------------------------------
+
+MnAutoStart = 0
+
+PowerOnMakro:		; runs after power-on
+	#MN MnAutoStart
+
+ResetMakro:		; runs after external reset
+	#MN MnAutoStart
+
+WatchdogMakro:	; runs after a crash (>500ms)
+	#MN MnAutoStart
+
+BrownOutMakro:	; runs when supply voltage drops <3V
+	#MN MnAutoStart
+
+;-------------------------------------------------------------------------------
+Makro: MnAutoStart

@@ -21,16 +21,12 @@ Library for controlling Electronic Assembly eDIPTFT displays
      Boston, MA 02110-1301 USA
 ------------------------------------------------------------------------------
 
-There isn't much documentation yet. I have started to write the functions on
-25JAN2013 and converted them into a library on 01FEB2013. I'm mainly
-developing this library inside another projects, so functions are added as
-they are needed in that other project. Once the other project is ready, I
-might complete this library.
+---- 03feb2013
+- Smallprotocol works!!! Yay!
+- More functions added.
 
-Documentation on the eDIPTFT series is available from
+---- 29jan2013
+- Basic functionality is there
 
-  http://www.lcd-module.com/
- 
-CAVEAT: When using Smallprotocol to communicate with the display (highly
-recommended!) via RS232, the display MUST be selected by with a select
-command, otherwise it will ignore ANY communication!
+---- 26jan2013
+- Project started

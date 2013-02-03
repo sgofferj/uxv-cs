@@ -7,6 +7,10 @@ http://stefan.gofferje.net/uxv-cs
 Changelog
 --------------------------------------------------------------------
 
+---- 03feb2013
+- mavlink_msg_request_data_stream implemented and WORKS
+- LCD comms switched to smallprotocol
+
 ---- 01feb2013
 - Basic MAVLink functionality implemented
 - Basic display framework implemented

@@ -1,0 +1,408 @@
+Macro-Compiler V3.0 (20.01.2012) for
+EA eDIPTFT32-A, EA eDIPTFT43-A, EA eDIPTFT57-A and EA eDIPTFT70-A
+
+Open File <\\K-tanco\home\_projects\uxv-cs\git\ediptft43\uxv-cs.kmc>
+Open File <\\K-tanco\home\_projects\uxv-cs\ea\default_constant.kmi>
+Open File <\\K-tanco\home\_projects\uxv-cs\ea\default_font.kmi>
+Import Font <\\K-tanco\home\_projects\uxv-cs\Fonts\4x6.FXT>
+            size: 4x6 dots, used codes: 32..158, 1662 bytes
+Import Font <\\K-tanco\home\_projects\uxv-cs\Fonts\6x8.FXT>
+            size: 6x8 dots, used codes: 32..255, 3222 bytes
+Import Font <\\K-tanco\home\_projects\uxv-cs\Fonts\7x12.FXT>
+            size: 7x12 dots, used codes: 32..255, 3926 bytes
+Import Font <\\K-tanco\home\_projects\uxv-cs\Fonts\GENEVA10.FXT>
+            height: 10 dots, used codes: 32..248, 3108 bytes
+Import Font <\\K-tanco\home\_projects\uxv-cs\Fonts\CHICAG14.FXT>
+            height: 14 dots, used codes: 32..248, 3830 bytes
+Import Font <\\K-tanco\home\_projects\uxv-cs\Fonts\SWISS30B.FXT>
+            height: 30 dots, used codes: 32..248, 10470 bytes
+Import Font <\\K-tanco\home\_projects\uxv-cs\Fonts\BIGZIF50.FXT>
+            height: 50 dots, used codes: 43..58, 3186 bytes
+Import Font <\\K-tanco\home\_projects\uxv-cs\Fonts\BIGZIF100.FXT>
+            height: 100 dots, used codes: 43..58, 10809 bytes
+Open File <\\K-tanco\home\_projects\uxv-cs\ea\default_pattern.kmi>
+Import Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern01.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_pattern.kmi>
+--->LINE 6: cannot load Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern01.bmp> !
+--->'Pattern:  1  <pattern01.bmp>'
+
+Import Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern02.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_pattern.kmi>
+--->LINE 7: cannot load Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern02.bmp> !
+--->'Pattern:  2  <pattern02.bmp>'
+
+Import Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern03.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_pattern.kmi>
+--->LINE 8: cannot load Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern03.bmp> !
+--->'Pattern:  3  <pattern03.bmp>'
+
+Import Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern04.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_pattern.kmi>
+--->LINE 9: cannot load Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern04.bmp> !
+--->'Pattern:  4  <pattern04.bmp>'
+
+Import Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern05.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_pattern.kmi>
+--->LINE 10: cannot load Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern05.bmp> !
+--->'Pattern:  5  <pattern05.bmp>'
+
+Import Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern06.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_pattern.kmi>
+--->LINE 11: cannot load Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern06.bmp> !
+--->'Pattern:  6  <pattern06.bmp>'
+
+Import Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern07.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_pattern.kmi>
+--->LINE 12: cannot load Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern07.bmp> !
+--->'Pattern:  7  <pattern07.bmp>'
+
+Import Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern08.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_pattern.kmi>
+--->LINE 13: cannot load Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern08.bmp> !
+--->'Pattern:  8  <pattern08.bmp>'
+
+Import Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern09.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_pattern.kmi>
+--->LINE 14: cannot load Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern09.bmp> !
+--->'Pattern:  9  <pattern09.bmp>'
+
+Import Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern10.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_pattern.kmi>
+--->LINE 15: cannot load Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern10.bmp> !
+--->'Pattern: 10  <pattern10.bmp>'
+
+Import Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern11.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_pattern.kmi>
+--->LINE 16: cannot load Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern11.bmp> !
+--->'Pattern: 11  <pattern11.bmp>'
+
+Import Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern12.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_pattern.kmi>
+--->LINE 17: cannot load Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern12.bmp> !
+--->'Pattern: 12  <pattern12.bmp>'
+
+Import Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern13.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_pattern.kmi>
+--->LINE 18: cannot load Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern13.bmp> !
+--->'Pattern: 13  <pattern13.bmp>'
+
+Import Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern14.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_pattern.kmi>
+--->LINE 19: cannot load Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern14.bmp> !
+--->'Pattern: 14  <pattern14.bmp>'
+
+Import Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern15.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_pattern.kmi>
+--->LINE 20: cannot load Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern15.bmp> !
+--->'Pattern: 15  <pattern15.bmp>'
+
+Import Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern16.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_pattern.kmi>
+--->LINE 21: cannot load Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern16.bmp> !
+--->'Pattern: 16  <pattern16.bmp>'
+
+Import Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern17.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_pattern.kmi>
+--->LINE 22: cannot load Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern17.bmp> !
+--->'Pattern: 17  <pattern17.bmp>'
+
+Import Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern18.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_pattern.kmi>
+--->LINE 23: cannot load Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern18.bmp> !
+--->'Pattern: 18  <pattern18.bmp>'
+
+Import Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern19.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_pattern.kmi>
+--->LINE 24: cannot load Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern19.bmp> !
+--->'Pattern: 19  <pattern19.bmp>'
+
+Import Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern20.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_pattern.kmi>
+--->LINE 25: cannot load Pattern <\\K-tanco\home\_projects\uxv-cs\BITMAPS\monochrome\Pattern\pattern20.bmp> !
+--->'Pattern: 20  <pattern20.bmp>'
+
+Open File <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border01.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 6: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border01.bmp> !
+--->'Border:  1   <border01.bmp>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border02.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 7: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border02.bmp> !
+--->'Border:  2   <border02.bmp>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border03.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 8: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border03.bmp> !
+--->'Border:  3   <border03.bmp>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border04.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 9: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border04.bmp> !
+--->'Border:  4   <border04.bmp>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border05.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 10: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border05.bmp> !
+--->'Border:  5   <border05.bmp>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border06.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 11: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border06.bmp> !
+--->'Border:  6   <border06.bmp>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border07.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 12: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border07.bmp> !
+--->'Border:  7   <border07.bmp>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border08.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 13: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border08.bmp> !
+--->'Border:  8   <border08.bmp>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border09.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 14: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border09.bmp> !
+--->'Border:  9   <border09.bmp>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border10.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 15: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border10.bmp> !
+--->'Border: 10   <border10.bmp>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border11.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 16: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border11.bmp> !
+--->'Border: 11   <border11.bmp>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border12.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 17: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border12.bmp> !
+--->'Border: 12   <border12.bmp>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border13.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 18: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border13.bmp> !
+--->'Border: 13   <border13.bmp>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border14.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 19: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border14.bmp> !
+--->'Border: 14   <border14.bmp>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border15.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 20: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border15.bmp> !
+--->'Border: 15   <border15.bmp>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border16.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 21: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border16.bmp> !
+--->'Border: 16   <border16.bmp>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border17.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 22: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border17.bmp> !
+--->'Border: 17   <border17.bmp>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border18.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 23: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border18.bmp> !
+--->'Border: 18   <border18.bmp>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border19.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 24: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border19.bmp> !
+--->'Border: 19   <border19.bmp>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border20.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 25: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\border20.bmp> !
+--->'Border: 20   <border20.bmp>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\Register_Normal.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 27: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\Register_Normal.bmp> !
+--->'Border: 31   <Register_Normal.bmp>,<Register_Selected.bmp>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\3Dgrey_Normal.bmp>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 28: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\3Dgrey_Normal.bmp> !
+--->'Border: 32   <3Dgrey_Normal.bmp>,<3Dgrey_Selected.bmp>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\Bar3Dgrey.G16>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 33: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\Bar3Dgrey.G16> !
+--->'Border: 101	<Bar3Dgrey.G16>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\Bar3Dblue.G16>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 34: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\Bar3Dblue.G16> !
+--->'Border: 102	<Bar3Dblue.G16>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\Bar3Dred.G16>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 35: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\Bar3Dred.G16> !
+--->'Border: 103	<Bar3Dred.G16>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\Bar3Dgreen.G16>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 36: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\Bar3Dgreen.G16> !
+--->'Border: 104	<Bar3Dgreen.G16>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\Bar3Dmagenta.G16>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 37: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\Bar3Dmagenta.G16> !
+--->'Border: 105	<Bar3Dmagenta.G16>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\Bar3Dcyan.G16>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 38: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\Bar3Dcyan.G16> !
+--->'Border: 106	<Bar3Dcyan.G16>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\Bar3Dyellow.G16>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 39: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\Bar3Dyellow.G16> !
+--->'Border: 107	<Bar3Dyellow.G16>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarRoundGrey.G16>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 41: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarRoundGrey.G16> !
+--->'Border: 111	<BarRoundGrey.G16>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarRoundBlue.G16>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 42: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarRoundBlue.G16> !
+--->'Border: 112	<BarRoundBlue.G16>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarRoundRed.G16>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 43: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarRoundRed.G16> !
+--->'Border: 113	<BarRoundRed.G16>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarRoundGreen.G16>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 44: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarRoundGreen.G16> !
+--->'Border: 114	<BarRoundGreen.G16>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarRoundMagenta.G16>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 45: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarRoundMagenta.G16> !
+--->'Border: 115	<BarRoundMagenta.G16>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarRoundCyan.G16>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 46: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarRoundCyan.G16> !
+--->'Border: 116	<BarRoundCyan.G16>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarRoundYellow.G16>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 47: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarRoundYellow.G16> !
+--->'Border: 117	<BarRoundYellow.G16>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarArrowGrey.G16>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 49: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarArrowGrey.G16> !
+--->'Border: 121	<BarArrowGrey.G16>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarArrowBlue.G16>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 50: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarArrowBlue.G16> !
+--->'Border: 122	<BarArrowBlue.G16>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarArrowRed.G16>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 51: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarArrowRed.G16> !
+--->'Border: 123	<BarArrowRed.G16>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarArrowGreen.G16>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 52: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarArrowGreen.G16> !
+--->'Border: 124	<BarArrowGreen.G16>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarArrowMagenta.G16>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 53: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarArrowMagenta.G16> !
+--->'Border: 125	<BarArrowMagenta.G16>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarArrowCyan.G16>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 54: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarArrowCyan.G16> !
+--->'Border: 126	<BarArrowCyan.G16>'
+
+Import Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarArrowYellow.G16>
+
+--->ERROR in file <\\K-tanco\home\_projects\uxv-cs\ea\default_border.kmi>
+--->LINE 55: cannot load Border <\\K-tanco\home\_projects\uxv-cs\BITMAPS\color\border\BarArrowYellow.G16> !
+--->'Border: 127	<BarArrowYellow.G16>'
+
+PowerOnMacro:   0,   1 commands,     4 bytes
+ResetMacro:   1,   1 commands,     4 bytes
+WatchdogMacro:   2,   1 commands,     4 bytes
+BrownOutMacro:   3,   1 commands,     4 bytes
+
+---> found 63 Errors !
