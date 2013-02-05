@@ -302,8 +302,8 @@ void initTest() {
 
 void drawTest() {
   drawPFD(100,136,pitch,roll);
-  ea.updateInstrument(1,heading/2);
-  ea.updateInstrument(2,heading/2);
+  ea.updateInstrument(1,heading/2+1);
+  ea.updateInstrument(2,heading/2+1);
 //  ea.updateInstrument(3,182-(heading/2));
   ea.setTextFont(9);
   ea.setTextColor(EA_WHITE,EA_BLACK);
