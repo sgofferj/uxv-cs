@@ -7,6 +7,13 @@ http://stefan.gofferje.net/uxv-cs
 Changelog
 --------------------------------------------------------------------
 
+---- 05feb2013
+- PFD ready
+- Overview page almost ready
+- New functions for the EDIPTFT lib
+- bugfixes
+- publishes raw graphics for instruments under CC-BY-SA 3.0
+
 ---- 03feb2013
 - mavlink_msg_request_data_stream implemented and WORKS
 - LCD comms switched to smallprotocol
