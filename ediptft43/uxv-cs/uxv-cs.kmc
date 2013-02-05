@@ -1,0 +1,54 @@
+eDIPTFT43-A "UxV Control Station" ; define eDIP, "Projectname" max. 32 character
+;brings the display back to ex-works condition with it's standard-fonts 1..8, standard-pattern and standard-border
+
+AutoScan: 1 			; autoscan for correct baud rate to connect to eDIP on COM/USB
+
+;COM1: 115200				; program eDIP on COMx with 115200 Baud
+USB: 230400, "eDIP Programmer"	; use EA 9777-USB eDIP Programmer and program eDIP with 230400 baud
+
+;VERIFY				; verify after program
+
+;------------------------------------------------------------------------------
+; load defaults
+
+include <..\default_constant.kmi>	; double click to open
+include <..\default_pattern.kmi>
+include <..\default_border.kmi>
+
+;-----------------------------------------------------------------------------
+MAXCOLORDEPTH: 4
+Instrument: 1 <hsi_rose\hsi_rose_???.png>
+Instrument: 2 <hsi_bug\hsi_bug_???.png>
+Instrument: 3 <hsi_vor\hsi_vor_???.png>
+;-------------------------------------------------------------------------------
+Path: <..\..\Fonts>
+
+Font: 1,  <4x6.FXT>
+Font: 2,  <6x8.FXT>
+Font: 3,  <7x12.FXT>
+Font: 4,  <GENEVA10.FXT>
+Font: 5,  <CHICAG14.FXT>
+Font: 6,  <SWISS30B.FXT>
+Font: 7,  <BIGZIF50.FXT>
+Font: 8,  <BIGZIF100.FXT>
+Font: 9,  <8x16.FXT>
+Font: 10, <16x32.FXT>
+
+;-------------------------------------------------------------------------------
+
+MnAutoStart = 0
+
+PowerOnMakro:		; runs after power-on
+	#MN MnAutoStart
+
+ResetMakro:		; runs after external reset
+	#MN MnAutoStart
+
+WatchdogMakro:	; runs after a crash (>500ms)
+	#MN MnAutoStart
+
+BrownOutMakro:	; runs when supply voltage drops <3V
+	#MN MnAutoStart
+
+;-------------------------------------------------------------------------------
+Makro: MnAutoStart

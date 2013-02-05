@@ -1,0 +1,670 @@
+Macro-Compiler V3.3 (11.01.2013) for
+EA eDIPTFT32-A, EA eDIPTFT43-A, EA eDIPTFT57-A and EA eDIPTFT70-A
+
+Open File <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\uxv-cs.kmc>
+Open File <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\default_constant.kmi>
+Open File <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\default_pattern.kmi>
+Import Pattern <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\monochrome\Pattern\pattern01.bmp>
+Import Pattern <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\monochrome\Pattern\pattern02.bmp>
+Import Pattern <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\monochrome\Pattern\pattern03.bmp>
+Import Pattern <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\monochrome\Pattern\pattern04.bmp>
+Import Pattern <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\monochrome\Pattern\pattern05.bmp>
+Import Pattern <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\monochrome\Pattern\pattern06.bmp>
+Import Pattern <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\monochrome\Pattern\pattern07.bmp>
+Import Pattern <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\monochrome\Pattern\pattern08.bmp>
+Import Pattern <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\monochrome\Pattern\pattern09.bmp>
+Import Pattern <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\monochrome\Pattern\pattern10.bmp>
+Import Pattern <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\monochrome\Pattern\pattern11.bmp>
+Import Pattern <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\monochrome\Pattern\pattern12.bmp>
+Import Pattern <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\monochrome\Pattern\pattern13.bmp>
+Import Pattern <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\monochrome\Pattern\pattern14.bmp>
+Import Pattern <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\monochrome\Pattern\pattern15.bmp>
+Import Pattern <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\monochrome\Pattern\pattern16.bmp>
+Import Pattern <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\monochrome\Pattern\pattern17.bmp>
+Import Pattern <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\monochrome\Pattern\pattern18.bmp>
+Import Pattern <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\monochrome\Pattern\pattern19.bmp>
+Import Pattern <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\monochrome\Pattern\pattern20.bmp>
+Open File <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\default_border.kmi>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\border01.bmp>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\border02.bmp>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\border03.bmp>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\border04.bmp>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\border05.bmp>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\border06.bmp>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\border07.bmp>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\border08.bmp>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\border09.bmp>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\border10.bmp>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\border11.bmp>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\border12.bmp>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\border13.bmp>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\border14.bmp>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\border15.bmp>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\border16.bmp>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\border17.bmp>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\border18.bmp>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\border19.bmp>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\border20.bmp>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\Register_Normal.bmp>
+              <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\Register_Selected.bmp>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\3Dgrey_Normal.bmp>
+              <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\3Dgrey_Selected.bmp>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\Bar3Dgrey.G16>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\Bar3Dblue.G16>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\Bar3Dred.G16>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\Bar3Dgreen.G16>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\Bar3Dmagenta.G16>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\Bar3Dcyan.G16>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\Bar3Dyellow.G16>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\BarRoundGrey.G16>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\BarRoundBlue.G16>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\BarRoundRed.G16>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\BarRoundGreen.G16>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\BarRoundMagenta.G16>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\BarRoundCyan.G16>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\BarRoundYellow.G16>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\BarArrowGrey.G16>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\BarArrowBlue.G16>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\BarArrowRed.G16>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\BarArrowGreen.G16>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\BarArrowMagenta.G16>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\BarArrowCyan.G16>
+Import Border <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\BITMAPS\color\border\BarArrowYellow.G16>
+Import Instrument <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_000.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_001.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_002.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_003.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_004.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_005.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_006.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_007.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_008.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_009.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_010.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_011.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_012.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_013.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_014.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_015.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_016.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_017.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_018.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_019.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_020.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_021.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_022.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_023.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_024.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_025.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_026.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_027.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_028.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_029.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_030.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_031.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_032.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_033.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_034.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_035.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_036.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_037.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_038.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_039.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_040.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_041.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_042.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_043.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_044.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_045.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_046.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_047.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_048.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_049.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_050.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_051.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_052.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_053.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_054.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_055.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_056.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_057.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_058.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_059.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_060.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_061.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_062.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_063.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_064.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_065.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_066.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_067.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_068.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_069.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_070.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_071.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_072.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_073.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_074.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_075.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_076.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_077.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_078.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_079.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_080.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_081.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_082.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_083.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_084.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_085.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_086.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_087.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_088.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_089.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_090.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_091.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_092.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_093.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_094.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_095.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_096.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_097.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_098.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_099.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_100.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_101.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_102.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_103.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_104.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_105.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_106.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_107.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_108.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_109.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_110.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_111.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_112.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_113.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_114.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_115.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_116.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_117.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_118.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_119.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_120.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_121.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_122.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_123.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_124.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_125.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_126.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_127.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_128.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_129.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_130.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_131.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_132.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_133.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_134.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_135.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_136.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_137.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_138.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_139.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_140.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_141.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_142.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_143.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_144.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_145.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_146.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_147.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_148.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_149.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_150.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_151.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_152.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_153.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_154.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_155.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_156.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_157.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_158.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_159.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_160.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_161.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_162.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_163.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_164.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_165.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_166.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_167.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_168.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_169.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_170.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_171.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_172.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_173.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_174.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_175.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_176.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_177.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_178.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_179.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_rose\hsi_rose_180.png>
+              180 images, size: 180x180 dots, 1922922 bytes
+Import Instrument <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_000.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_001.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_002.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_003.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_004.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_005.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_006.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_007.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_008.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_009.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_010.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_011.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_012.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_013.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_014.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_015.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_016.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_017.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_018.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_019.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_020.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_021.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_022.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_023.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_024.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_025.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_026.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_027.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_028.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_029.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_030.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_031.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_032.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_033.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_034.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_035.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_036.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_037.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_038.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_039.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_040.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_041.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_042.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_043.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_044.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_045.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_046.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_047.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_048.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_049.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_050.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_051.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_052.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_053.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_054.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_055.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_056.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_057.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_058.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_059.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_060.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_061.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_062.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_063.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_064.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_065.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_066.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_067.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_068.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_069.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_070.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_071.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_072.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_073.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_074.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_075.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_076.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_077.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_078.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_079.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_080.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_081.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_082.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_083.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_084.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_085.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_086.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_087.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_088.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_089.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_090.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_091.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_092.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_093.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_094.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_095.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_096.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_097.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_098.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_099.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_100.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_101.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_102.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_103.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_104.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_105.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_106.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_107.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_108.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_109.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_110.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_111.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_112.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_113.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_114.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_115.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_116.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_117.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_118.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_119.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_120.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_121.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_122.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_123.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_124.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_125.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_126.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_127.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_128.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_129.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_130.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_131.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_132.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_133.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_134.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_135.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_136.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_137.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_138.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_139.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_140.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_141.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_142.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_143.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_144.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_145.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_146.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_147.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_148.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_149.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_150.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_151.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_152.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_153.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_154.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_155.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_156.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_157.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_158.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_159.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_160.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_161.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_162.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_163.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_164.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_165.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_166.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_167.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_168.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_169.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_170.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_171.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_172.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_173.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_174.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_175.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_176.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_177.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_178.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_179.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_bug\hsi_bug_180.png>
+              180 images, size: 180x180 dots, 90369 bytes
+Import Instrument <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_000.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_001.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_002.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_003.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_004.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_005.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_006.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_007.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_008.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_009.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_010.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_011.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_012.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_013.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_014.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_015.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_016.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_017.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_018.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_019.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_020.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_021.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_022.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_023.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_024.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_025.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_026.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_027.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_028.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_029.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_030.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_031.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_032.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_033.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_034.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_035.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_036.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_037.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_038.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_039.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_040.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_041.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_042.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_043.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_044.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_045.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_046.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_047.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_048.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_049.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_050.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_051.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_052.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_053.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_054.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_055.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_056.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_057.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_058.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_059.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_060.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_061.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_062.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_063.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_064.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_065.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_066.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_067.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_068.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_069.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_070.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_071.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_072.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_073.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_074.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_075.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_076.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_077.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_078.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_079.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_080.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_081.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_082.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_083.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_084.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_085.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_086.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_087.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_088.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_089.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_090.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_091.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_092.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_093.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_094.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_095.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_096.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_097.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_098.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_099.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_100.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_101.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_102.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_103.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_104.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_105.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_106.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_107.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_108.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_109.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_110.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_111.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_112.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_113.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_114.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_115.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_116.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_117.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_118.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_119.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_120.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_121.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_122.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_123.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_124.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_125.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_126.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_127.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_128.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_129.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_130.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_131.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_132.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_133.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_134.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_135.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_136.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_137.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_138.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_139.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_140.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_141.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_142.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_143.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_144.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_145.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_146.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_147.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_148.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_149.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_150.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_151.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_152.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_153.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_154.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_155.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_156.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_157.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_158.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_159.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_160.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_161.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_162.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_163.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_164.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_165.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_166.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_167.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_168.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_169.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_170.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_171.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_172.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_173.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_174.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_175.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_176.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_177.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_178.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_179.png>
+                  <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\hsi_vor\hsi_vor_180.png>
+              180 images, size: 180x180 dots, 188228 bytes
+Import Font <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\Fonts\4x6.FXT>
+            size: 4x6 dots, used codes: 32..158, 1662 bytes
+Import Font <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\Fonts\6x8.FXT>
+            size: 6x8 dots, used codes: 32..255, 3222 bytes
+Import Font <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\Fonts\7x12.FXT>
+            size: 7x12 dots, used codes: 32..255, 3926 bytes
+Import Font <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\Fonts\GENEVA10.FXT>
+            height: 10 dots, used codes: 32..248, 3108 bytes
+Import Font <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\Fonts\CHICAG14.FXT>
+            height: 14 dots, used codes: 32..248, 3830 bytes
+Import Font <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\Fonts\SWISS30B.FXT>
+            height: 30 dots, used codes: 32..248, 10470 bytes
+Import Font <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\Fonts\BIGZIF50.FXT>
+            height: 50 dots, used codes: 43..58, 3186 bytes
+Import Font <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\Fonts\BIGZIF100.FXT>
+            height: 100 dots, used codes: 43..58, 10809 bytes
+Import Font <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\Fonts\8x16.FXT>
+            size: 8x16 dots, used codes: 32..255, 4630 bytes
+Import Font <C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\Fonts\16x32.FXT>
+            size: 16x32 dots, used codes: 32..127, 6934 bytes
+PowerOnMacro:   0,   1 commands,     4 bytes
+ResetMacro:   1,   1 commands,     4 bytes
+WatchdogMacro:   2,   1 commands,     4 bytes
+BrownOutMacro:   3,   1 commands,     4 bytes
+
+Write DATA-FLASH Upload File C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\uxv-cs.DF
+
+DATA-FLASH Memory overview:
+     System:          2032 bytes
+   0 Strings:            0 bytes
+  10 Fonts:          51777 bytes
+  20 Pattern:         1420 bytes
+  43 Border:         26670 bytes
+   0 Buttons:            0 bytes
+   0 Pictures:           0 bytes
+   0 Animations:         0 bytes
+   3 Instruments:  2201519 bytes
+   0 Macros:             0 bytes
+   0 Touchmacros:        0 bytes
+   0 Portmacros:         0 bytes
+   0 Bitmacros:          0 bytes
+   0 Matrixmacros:       0 bytes
+   0 Analogmacros:       0 bytes
+   0 Processmacros:      0 bytes
+ -------------------------------
+            sumary:2283418 bytes
+
+connecting eDIPTFT43-A on "EA 9777-USB eDIP Programmer (COM5)"
+found: eDIPTFT43-A 480x272, color, Smallprotokoll, 4128kB FLASH, 115200 baud
+program file C:\ELECTRONIC ASSEMBLY LCD-Tools Portable\Data\eDIP - intelligent graphic displays\eDIPTFT43-A\uxv-cs\uxv-cs.DF with 230400 baud
+Ok
+Ready: eDIP is programed,  2283418 bytes used, 1943654 bytes free
