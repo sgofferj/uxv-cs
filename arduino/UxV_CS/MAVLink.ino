@@ -35,6 +35,7 @@ void gcs_handleMessage(mavlink_message_t* msg)
       gpsfix = packet.fix_type;
       mav_utime = packet.time_usec;
       numSats = packet.satellites_visible;
+      cog = packet.cog;
       status_gps=1;
       break;
     }
@@ -60,7 +61,9 @@ void gcs_handleMessage(mavlink_message_t* msg)
       mavlink_vfr_hud_t packet;
       mavlink_msg_vfr_hud_decode(msg, &packet);        
       heading = packet.heading;
-      Serial.println("---------- HUD");
+      ias = packet.airspeed;
+      grs = packet.groundspeed;
+      vsi=packet.climb;
      break;
     }
     case MAVLINK_MSG_ID_RAW_PRESSURE:
@@ -75,7 +78,7 @@ void gcs_handleMessage(mavlink_message_t* msg)
 
       mavlink_sys_status_t packet;
       mavlink_msg_sys_status_decode(msg, &packet);
-      battery = packet.voltage_battery;
+      vbat = packet.voltage_battery;
       break;
     }
   }

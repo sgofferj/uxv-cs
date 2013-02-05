@@ -338,6 +338,13 @@ void EDIPTFT::updateInstrument(char no, char val) {
   sendData(command,5);
 }
 
+void EDIPTFT::redrawInstrument(char no) {
+  char command [] = {
+    27,'I','N',no
+  };
+  sendData(command,4);
+}
+
 void EDIPTFT::deleteInstrument(char no, char n1, char n2) {
   char command [] = {
     27,'B','D',no,n1,n2
@@ -348,6 +355,13 @@ void EDIPTFT::deleteInstrument(char no, char n1, char n2) {
 void EDIPTFT::setLineColor(char fg, char bg) {
   char command [] = {
     27,'F','G',fg,bg
+  };
+  sendData(command,5);
+}
+
+void EDIPTFT::setLineThick(char x, char y) {
+  char command [] = {
+    27,'G','Z',x,y
   };
   sendData(command,5);
 }

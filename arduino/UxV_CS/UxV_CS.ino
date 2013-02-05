@@ -42,7 +42,7 @@ unsigned long timer;
 // Look and feel
 #define UI_BUTTON_ACTIVE EA_MINT,EA_BLACK,EA_MINT,EA_YELLOW,EA_BLACK,EA_YELLOW
 #define UI_BUTTON_INACTIVE EA_WHITE,EA_BLACK,EA_WHITE,EA_YELLOW,EA_BLACK,EA_YELLOW
-
+#define PFD_SUPP_THICK 4
 
 
 unsigned long Latitude_Home=0;
@@ -61,11 +61,13 @@ float pitch=0;
 float roll=0;
 float yaw=0;
 unsigned long altitude=0;
-unsigned long longitude=0;
-unsigned long latitude=0;
-unsigned int velocity=0;
+int32_t longitude=0;
+int32_t latitude=0;
+unsigned int ias=0;
+unsigned int grs=0;
+int vsi=0;
 int numSats=0;
-float battery=0;
+unsigned int vbat=0;
 int bmode=0;
 int gpsfix=0;
 int beat=0;
@@ -73,6 +75,7 @@ int status_mavlink=0;
 int status_frsky=0;
 int status_gps=0;
 int heading=0;
+unsigned int cog=0;
 unsigned long mav_utime=0;
 uint8_t received_sysid=0;   ///< ID of heartbeat sender
 uint8_t received_compid=0;  // component id of heartbeat sender
@@ -83,8 +86,7 @@ void setup() {
   Serial.begin(57600);
   Serial1.begin(57600,256,16);
   Serial3.begin(115200);
-  ea.smallProtoSelect(0);
-  ea.smallProtoSelect(0);
+  ea.smallProtoSelect(7);
   ea.clear();
   ea.cursor(false);
   drawSplash();
@@ -135,6 +137,10 @@ void setMode(int mode) {
   drawButtons();
 
   switch (mode) {
+    case 1 : {
+      initUAVdata();
+      break;
+    }
     case 6 : {
       initTest();
       break;
@@ -244,22 +250,76 @@ void drawSplash() {
   delay(2000);
   setMode(1);
 }
-  
+
+void initUAVdata() {
+  ea.setLineColor(EA_WHITE,0);
+  ea.setLineThick(1,1);
+  ea.drawLine(0,68,480,68);
+  ea.drawLine(0,118,480,118);
+  ea.drawLine(0,168,480,168);
+  ea.drawLine(0,218,480,218);
+  ea.drawLine(240,18,240,218);
+  ea.drawLine(120,68,120,218);
+  ea.drawLine(360,68,360,218);
+  ea.setTextFont(9);
+  ea.setTextColor(EA_WHITE,EA_BLACK);
+  ea.drawText(10,20,'L',"LAT");
+  ea.drawText(250,20,'L',"LON");
+  ea.drawText(10,70,'L',"COG");
+  ea.drawText(130,70,'L',"ALT");
+  ea.drawText(250,70,'L',"IAS");
+  ea.drawText(370,70,'L',"GS");
+  ea.drawText(10,120,'L',"Vbatt");
+}
+
 void drawUAVdata() {
-  ea.setTextFont(5);
-  ea.setTextColor(EA_YELLOW,EA_BLACK);
-  ea.drawText(0,24,'L',"LON: "+String(longitude));
-  ea.drawText(0,44,'L',"LAT: "+String(latitude));
-  ea.drawText(0,64,'L',"ALT: "+String(altitude/1000)+"m        ");
+  String vbath=String(vbat);
+  if (vbat/1000<10) vbath = vbath.substring(0,1)+"."+vbath.substring(2,4);
+  else vbath = vbath.substring(0,2)+"."+vbath.substring(3,5);
+  ea.setTextFont(10);
+  ea.setTextColor(EA_WHITE,EA_BLACK);
+  ea.drawText(120,36,'C',coordToString(latitude,'N'));
+  ea.drawText(360,36,'C',coordToString(longitude,'E'));
+  ea.drawText(100,86,'R'," "+String(cog/100));
+  ea.drawText(220,86,'R'," "+String(altitude/1000)+"m");
+  ea.drawText(340,86,'R'," "+String(ias));
+  ea.drawText(460,86,'R'," "+String(grs));
+  ea.drawText(100,136,'R'," "+vbath);
   start_feeds();
 }
 
 void initTest() {
-  ea.defineInstrument(1,140,36,1,0,0,180);
+  ea.defineInstrument(1,290,48,1,0,0,180);
+  ea.defineInstrument(2,290,48,2,0,0,180);
+//  ea.defineInstrument(3,290,48,3,0,0,180);
+  ea.setTextFont(4);
+  ea.setTextColor(EA_WHITE,EA_BLACK);
+  ea.drawText(240, 42,'C',"IAS");
+  ea.drawText(240, 92,'C',"GS");
+  ea.drawText(240,142,'C',"VS");
+  ea.drawText(240,192,'C',"ALT");
 }
 
 void drawTest() {
+  drawPFD(100,136,pitch,roll);
   ea.updateInstrument(1,heading/2);
+  ea.updateInstrument(2,heading/2);
+//  ea.updateInstrument(3,182-(heading/2));
+  ea.setTextFont(9);
+  ea.setTextColor(EA_WHITE,EA_BLACK);
+  ea.drawText(380,30,'C',leading2Zero(heading));
+  ea.setTextFont(10);
+  ea.setTextColor(EA_WHITE,EA_BLACK);
+  ea.drawText(240, 55,'C',"  "+String(ias)+"  ");
+  ea.drawText(240,105,'C',"  "+String(grs)+"  ");
+  if (gpsfix >= 2) {
+    ea.drawText(240,155,'C'," "+String(vsi)+" ");
+    ea.drawText(240,205,'C',"  "+String(altitude/1000)+"  ");
+  }
+  else {
+    ea.drawText(240,155,'C',"  ---  ");
+    ea.drawText(240,205,'C',"  ---  ");
+  }    
 }
 
 void destroyTest() {
@@ -283,7 +343,40 @@ void destroySystem() {
   ea.deleteBargraph(1,1);
 }
 
-  
+void drawPFD(int x, int y, int pitch, int roll) {
+  static int oxs,oys,oxe,oye;
+  static int oxss,oyss,oxes,oyes;
+  int xs = x - (cos(toRad(roll))*90);
+  int xe = x + (cos(toRad(roll))*90);
+  int ys = (y + (sin(toRad(roll))*90))+pitch;
+  int ye = (y - (sin(toRad(roll))*90))+pitch;
+  int xss = x - (cos(toRad(roll))*20);
+  int xes = x + (cos(toRad(roll))*20);
+  int yss = (y + (sin(toRad(roll))*20))+pitch;
+  int yes = (y - (sin(toRad(roll))*20))+pitch;
+  ea.setLineColor(EA_BLACK,0);
+  ea.setLineThick(PFD_SUPP_THICK,PFD_SUPP_THICK);
+  ea.drawLine(oxss,oyss-15,oxes,oyes-15);
+  ea.drawLine(oxss,oyss+15,oxes,oyes+15);
+  ea.setLineThick(1,1);
+  ea.drawLine(oxs,oys,oxe,oye);
+  ea.setLineColor(EA_LIGHTBLUE,0);
+  ea.setLineThick(PFD_SUPP_THICK,PFD_SUPP_THICK);
+  if (abs(roll)<90) ea.drawLine(xss,yss-15,xes,yes-15);
+  else ea.drawLine(xss,yss+15,xes,yes+15);
+  ea.setLineColor(EA_ORANGE,0);
+  if (abs(roll)<90) ea.drawLine(xss,yss+15,xes,yes+15);
+  else ea.drawLine(xss,yss-15,xes,yes-15);
+  ea.setLineColor(EA_WHITE,0);
+  ea.setLineThick(1,1);
+  ea.drawLine(xs,ys,xe,ye);
+  ea.setLineColor(EA_GREEN,0);
+  ea.drawLine(x-5,y,x+5,y);
+  ea.drawLine(x,y-5,x,y+5);
+  oxs=xs; oys=ys; oxe=xe; oye=ye;
+  oxss=xss; oyss=yss; oxes=xes; oyes=yes;
+}
+
 String leadingZero(int number) {
   String helper = "";
   if (number < 10) {
@@ -291,6 +384,50 @@ String leadingZero(int number) {
   }
   helper += String(number);
   return helper;
+}
+
+String leading2Zero(int number) {
+  String helper = "";
+  if (number < 100) {
+    helper = "0";
+  }
+  if (number < 10) {
+    helper = "00";
+  }
+  helper += String(number);
+  return helper;
+}
+
+String coordToString(int32_t coord, char direction) {
+  String result = String(coord);
+  if (coord > 0) {
+    switch (direction) {
+      case 'N' : {
+        result = "N "+result;
+        break;
+      }
+      case 'E' : {
+        result = "E "+result;
+        break;
+      }
+    }
+  }
+  if (coord < 0) {
+    switch (direction) {
+      case 'N' : {
+        result = "S "+result.substring(1);
+        break;
+      }
+      case 'E' : {
+        result = "W "+result.substring(1);
+        break;
+      }
+    }
+    coord = -1*coord;
+  }
+  if (coord/1e7 < 10) result = result.substring(0,3)+"."+result.substring(4);
+  else result = result.substring(0,4)+"."+result.substring(5);
+  return result;
 }
 
 int freeRam() {

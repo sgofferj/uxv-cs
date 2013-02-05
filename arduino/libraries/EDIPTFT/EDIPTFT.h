@@ -69,12 +69,14 @@ class EDIPTFT {
     void deleteBargraph(char no,char n1);
     void defineInstrument(char no, int x1, int y1, char image, char angle, char sv, char ev);
     void updateInstrument(char no, char val);
+    void redrawInstrument(char no);
     void deleteInstrument(char no, char n1, char n2);
     void setTextColor(char fg, char bg);
     void setTextFont(char font);
     void setTextAngle(char angle);
     void drawText(int x1, int y1, char justification,String text);
     void setLineColor(char fg, char bg);
+    void setLineThick(char x, char y);
     void drawLine(int x1, int y1, int x2, int y2);
     void drawRect(int x1, int y1, int x2, int y2);
     void drawRectf(int x1, int y1, int x2, int y2, char color);
