@@ -3,19 +3,22 @@
 #include <AP_Common.h>
 #include <AP_Math.h>
 #include <GCS_MAVLink.h>
+S
 #include <EDIPTFT.h>
 
-#define _VERSION "0.4"
+#define _VERSION "V0.44"
 
-String GPSFIX[] = {" NOFIX "," NOFIX "," 2DFIX "," 3DFIX "};
+String GPSFIX[] = {" NOFIX "," DRECK "," 2DFIX "," 3DFIX "};
 
 FastSerialPort0(Serial);
 FastSerialPort1(Serial1);
 FastSerialPort2(Serial2);
 FastSerialPort3(Serial3);
+
 EDIPTFT ea(3,1);
 
-#define DIST_CONV 1.0   // For distance display in meters choose 0.0, for feet 3.2808
+#define DIST_CONV 1.0   // For distance display in meters choose 1.0, for feet 3.2808
+//#define DIST_CONV 3.2808   // For distance display in meters choose 1.0, for feet 3.2808
 
 #define toRad(x) (x*PI)/180.0
 #define toDeg(x) (x*180.0)/PI
@@ -96,11 +99,11 @@ void loop() {
   if (gcs_update()) {
     switch (GCS_MODE) {
       case 1 : {
-        drawUAVdata();
+        drawOVRV();
         break;
       }
-      case 6 : {
-        drawTest();
+      case 3 : {
+        drawPFD();
         break;
       }
     }
@@ -122,8 +125,8 @@ void parseSerial() {
 
 void setMode(int mode) {
   switch (GCS_MODE) {
-    case 6 : {
-      destroyTest();
+    case 3 : {
+      destroyPFD();
       break;
     }
     case 7 : {
@@ -138,11 +141,11 @@ void setMode(int mode) {
 
   switch (mode) {
     case 1 : {
-      initUAVdata();
+      initOVRV();
       break;
     }
-    case 6 : {
-      initTest();
+    case 3 : {
+      initPFD();
       break;
     }
     case 7 : {
@@ -155,34 +158,6 @@ void setMode(int mode) {
 
 void drawStatusbar() {
   ea.setTextFont(3);
-
-  if (status_frsky == 1) ea.setTextColor(EA_BLACK,EA_GREEN);
-  else ea.setTextColor(EA_BLACK,EA_RED);
-  ea.drawText(384,3,'R'," FRSKY ");
-
-  if (status_mavlink == 1) ea.setTextColor(EA_BLACK,EA_GREEN);
-  else ea.setTextColor(EA_BLACK,EA_RED);
-  ea.drawText(428,3,'R'," MAVL ");
-  
-  switch (gpsfix) {
-    case 0 : {
-      ea.setTextColor(EA_BLACK,EA_RED);
-      break;
-    }
-    case 1 : {
-      ea.setTextColor(EA_BLACK,EA_RED);
-      break;
-    }
-    case 2 : {
-      ea.setTextColor(EA_BLACK,EA_YELLOW);
-      break;
-    }
-    case 3 : {
-      ea.setTextColor(EA_BLACK,EA_GREEN);
-      break;
-    }
-  }    
-  ea.drawText(479,3,'R',GPSFIX[gpsfix]);
 
   if ((bmode & MAV_MODE_FLAG_SAFETY_ARMED) == MAV_MODE_FLAG_SAFETY_ARMED) {
     ea.setTextColor(EA_BLACK,EA_RED);
@@ -208,7 +183,40 @@ void drawStatusbar() {
     ea.setTextColor(EA_BLACK,EA_GREEN);
     ea.drawText(72,3,'C'," MANU ");
   }
+  if (status_frsky == 1) ea.setTextColor(EA_BLACK,EA_GREEN);
+  else ea.setTextColor(EA_BLACK,EA_RED);
+  ea.drawText(354,3,'R'," FRSKY ");
+
+  if (status_mavlink == 1) ea.setTextColor(EA_BLACK,EA_GREEN);
+  else ea.setTextColor(EA_BLACK,EA_RED);
+  ea.drawText(398,3,'R'," MAVL ");
   
+  switch (gpsfix) {
+    case 0 : {
+      ea.setTextColor(EA_BLACK,EA_RED);
+      break;
+    }
+    case 1 : {
+      ea.setTextColor(EA_BLACK,EA_RED);
+      break;
+    }
+    case 2 : {
+      ea.setTextColor(EA_BLACK,EA_YELLOW);
+      break;
+    }
+    case 3 : {
+      ea.setTextColor(EA_BLACK,EA_GREEN);
+      break;
+    }
+  }    
+  ea.drawText(449,3,'R',GPSFIX[gpsfix]);
+
+  if (numSats < 5) ea.setTextColor(EA_BLACK,EA_RED);
+  else if (numSats < 8) ea.setTextColor(EA_BLACK,EA_YELLOW);
+  else if (numSats >= 8) ea.setTextColor(EA_BLACK,EA_GREEN);
+  ea.drawText(479,3,'R'," "+leadingZero(numSats)+" ");
+  
+
   ea.setLineColor(EA_WHITE,1);
   ea.drawLine(0,18,480,18);
 }
@@ -222,10 +230,10 @@ void drawButtons() {
   ea.defineTouchKey(  0,248, 60,272,0,1,"OVRV");
   if (GCS_MODE==2) ea.setTouchkeyColors(UI_BUTTON_ACTIVE);
   else ea.setTouchkeyColors(UI_BUTTON_INACTIVE);
-  ea.defineTouchKey( 70,248,130,272,0,2,"MOD2");
+  ea.defineTouchKey( 70,248,130,272,0,2,"FRSKY");
   if (GCS_MODE==3) ea.setTouchkeyColors(UI_BUTTON_ACTIVE);
   else ea.setTouchkeyColors(UI_BUTTON_INACTIVE);
-  ea.defineTouchKey(140,248,200,272,0,3,"MOD3");
+  ea.defineTouchKey(140,248,200,272,0,3,"PFD");
   if (GCS_MODE==4) ea.setTouchkeyColors(UI_BUTTON_ACTIVE);
   else ea.setTouchkeyColors(UI_BUTTON_INACTIVE);
   ea.defineTouchKey(210,248,270,272,0,4,"MOD4");
@@ -251,7 +259,8 @@ void drawSplash() {
   setMode(1);
 }
 
-void initUAVdata() {
+void initOVRV() {
+  start_feeds();
   ea.setLineColor(EA_WHITE,0);
   ea.setLineThick(1,1);
   ea.drawLine(0,68,480,68);
@@ -272,23 +281,34 @@ void initUAVdata() {
   ea.drawText(10,120,'L',"Vbatt");
 }
 
-void drawUAVdata() {
+void drawOVRV() {
   String vbath=String(vbat);
   if (vbat/1000<10) vbath = vbath.substring(0,1)+"."+vbath.substring(2,4);
   else vbath = vbath.substring(0,2)+"."+vbath.substring(3,5);
   ea.setTextFont(10);
+  if (gpsfix > 1) ea.setTextColor(EA_WHITE,EA_BLACK);
+  else if (gpsfix <= 1) ea.setTextColor(EA_RED,EA_BLACK);
+  else if (gpsfix == 2) ea.setTextColor(EA_YELLOW,EA_BLACK);
+  if (gpsfix >= 1) {
+    ea.drawText(125,36,'C',coordToString(latitude,'N'));
+    ea.drawText(365,36,'C',coordToString(longitude,'E'));
+    ea.drawText(105,86,'R',"  "+String(cog/100));
+    if (altitude/1000 < 60000) ea.drawText(225,86,'R'," "+String(int(altitude/1000*DIST_CONV)));
+    ea.drawText(465,86,'R',"  "+String(grs));
+  }
+  else {
+    ea.drawText(125,36,'C',"    ---    ");
+    ea.drawText(365,36,'C',"    ---    ");
+    ea.drawText(105,86,'R',"   ---");
+    ea.drawText(225,86,'R',"   ---");
+    ea.drawText(465,86,'R',"   ---");
+  }
   ea.setTextColor(EA_WHITE,EA_BLACK);
-  ea.drawText(120,36,'C',coordToString(latitude,'N'));
-  ea.drawText(360,36,'C',coordToString(longitude,'E'));
-  ea.drawText(100,86,'R'," "+String(cog/100));
-  ea.drawText(220,86,'R'," "+String(altitude/1000)+"m");
-  ea.drawText(340,86,'R'," "+String(ias));
-  ea.drawText(460,86,'R'," "+String(grs));
-  ea.drawText(100,136,'R'," "+vbath);
-  start_feeds();
+  ea.drawText(345,86,'R',"  "+String(ias));
+  ea.drawText(105,136,'R'," "+vbath);
 }
 
-void initTest() {
+void initPFD() {
   ea.defineInstrument(1,290,48,1,0,0,180);
   ea.defineInstrument(2,290,48,2,0,0,180);
 //  ea.defineInstrument(3,290,48,3,0,0,180);
@@ -300,8 +320,8 @@ void initTest() {
   ea.drawText(240,192,'C',"ALT");
 }
 
-void drawTest() {
-  drawPFD(100,136,pitch,roll);
+void drawPFD() {
+  drawATTI(100,136,pitch,roll);
   ea.updateInstrument(1,heading/2+1);
   ea.updateInstrument(2,heading/2+1);
 //  ea.updateInstrument(3,182-(heading/2));
@@ -311,18 +331,22 @@ void drawTest() {
   ea.setTextFont(10);
   ea.setTextColor(EA_WHITE,EA_BLACK);
   ea.drawText(240, 55,'C',"  "+String(ias)+"  ");
-  ea.drawText(240,105,'C',"  "+String(grs)+"  ");
-  if (gpsfix >= 2) {
-    ea.drawText(240,155,'C'," "+String(vsi)+" ");
-    ea.drawText(240,205,'C',"  "+String(altitude/1000)+"  ");
+  if (gpsfix > 1) ea.setTextColor(EA_WHITE,EA_BLACK);
+  else if (gpsfix <= 1) ea.setTextColor(EA_RED,EA_BLACK);
+  else if (gpsfix == 2) ea.setTextColor(EA_YELLOW,EA_BLACK);
+  if (gpsfix >= 1) {
+    ea.drawText(240,105,'C',"  "+String(grs)+"  ");
+    ea.drawText(240,155,'C'," "+String(int(vsi*DIST_CONV))+" ");
+    ea.drawText(240,205,'C',"  "+String(int(altitude/1000*DIST_CONV))+"  ");
   }
   else {
-    ea.drawText(240,155,'C',"  ---  ");
+    ea.drawText(240,105,'C'," --- ");
+    ea.drawText(240,155,'C'," --- ");
     ea.drawText(240,205,'C',"  ---  ");
   }    
 }
 
-void destroyTest() {
+void destroyPFD() {
   ea.deleteInstrument(1,1,1);
 }
 
@@ -343,7 +367,7 @@ void destroySystem() {
   ea.deleteBargraph(1,1);
 }
 
-void drawPFD(int x, int y, int pitch, int roll) {
+void drawATTI(int x, int y, int pitch, int roll) {
   static int oxs,oys,oxe,oye;
   static int oxss,oyss,oxes,oyes;
   int xs = x - (cos(toRad(roll))*90);
@@ -356,17 +380,38 @@ void drawPFD(int x, int y, int pitch, int roll) {
   int yes = (y - (sin(toRad(roll))*20))+pitch;
   ea.setLineColor(EA_BLACK,0);
   ea.setLineThick(PFD_SUPP_THICK,PFD_SUPP_THICK);
+  ea.drawLine(oxss,oyss-45,oxes,oyes-45);
+  ea.drawLine(oxss,oyss+45,oxes,oyes+45);
+  ea.setLineThick(1,1);
   ea.drawLine(oxss,oyss-15,oxes,oyes-15);
   ea.drawLine(oxss,oyss+15,oxes,oyes+15);
-  ea.setLineThick(1,1);
   ea.drawLine(oxs,oys,oxe,oye);
   ea.setLineColor(EA_LIGHTBLUE,0);
-  ea.setLineThick(PFD_SUPP_THICK,PFD_SUPP_THICK);
-  if (abs(roll)<90) ea.drawLine(xss,yss-15,xes,yes-15);
-  else ea.drawLine(xss,yss+15,xes,yes+15);
+  if (abs(roll)<90) {
+    ea.setLineThick(1,1);
+    ea.drawLine(xss,yss-15,xes,yes-15);
+    ea.setLineThick(PFD_SUPP_THICK,PFD_SUPP_THICK);
+    ea.drawLine(xss,yss-45,xes,yes-45);
+  }
+  else {
+    ea.setLineThick(1,1);
+    ea.drawLine(xss,yss+15,xes,yes+15);
+    ea.setLineThick(PFD_SUPP_THICK,PFD_SUPP_THICK);
+    ea.drawLine(xss,yss+45,xes,yes+45);
+  }
   ea.setLineColor(EA_ORANGE,0);
-  if (abs(roll)<90) ea.drawLine(xss,yss+15,xes,yes+15);
-  else ea.drawLine(xss,yss-15,xes,yes-15);
+  if (abs(roll)<90) {
+    ea.setLineThick(1,1);
+    ea.drawLine(xss,yss+15,xes,yes+15);
+    ea.setLineThick(PFD_SUPP_THICK,PFD_SUPP_THICK);
+    ea.drawLine(xss,yss+45,xes,yes+45);
+  }
+  else {
+    ea.setLineThick(1,1);
+    ea.drawLine(xss,yss-15,xes,yes-15);
+    ea.setLineThick(PFD_SUPP_THICK,PFD_SUPP_THICK);
+    ea.drawLine(xss,yss-45,xes,yes-45);
+  }
   ea.setLineColor(EA_WHITE,0);
   ea.setLineThick(1,1);
   ea.drawLine(xs,ys,xe,ye);
