@@ -1,0 +1,29 @@
+Integrated control station for arbitrary APM-based unmanned vehicles
+UxV-CS
+
+(C) 2012 by Stefan Gofferje
+http://stefan.gofferje.net/uxv-cs
+
+Credits
+--------------------------------------------------------------------
+
+This work is based on and/or uses code from:
+
+- MAVLink protocol - http://qgroundcontrol.org/mavlink/start
+- GCS_MAVLink and other libraries of the ArduPilot project - https://github.com/diydrones/ardupilot
+- Ardustation II project - http://code.google.com/p/ardustation-ii/
+
+
+Additional thanks go to:
+
+Chris Anderson of 3D Robotics Inc. - http://store.diydrones.com/
+For providing an APM 2.5 development kit.
+
+Electronic Assembly GmbH - http://www.lcd-module.com/
+For providing an eDIPTFT43 development kit.
+
+FrSky Electronic Co. Ltd. - http://www.frsky-rc.com/
+For providing RC telemetry transmitter modules and receivers for development.
+
+Odenwälder Kunststoffwerke Gehäusesysteme GmbH - http://www.okw.com/
+For providing enclosure samples for building the prototype.

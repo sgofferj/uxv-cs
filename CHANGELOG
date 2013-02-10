@@ -7,6 +7,12 @@ http://stefan.gofferje.net/uxv-cs
 Changelog
 --------------------------------------------------------------------
 
+---- 10feb2013
+- changed PFD VSI from numerical to graphical
+- added status bar indicator for HEARTBEAT.custom_mode
+- minor fixes
+- new methods for eDIPTFT lib
+
 ---- 05feb2013
 - PFD ready
 - Overview page almost ready
