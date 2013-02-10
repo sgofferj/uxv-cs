@@ -6,9 +6,10 @@
 
 #include <EDIPTFT.h>
 
-#define _VERSION "V0.46"
+#define _VERSION "V0.47"
 
-char *GPSFIX[] = {" NOFIX "," NOFIX "," 2DFIX "," 3DFIX "};
+const char *GPSFIX[] = {" NOFIX "," NOFIX "," 2DFIX "," 3DFIX "};
+const char *TKLABEL[] = {"OVRV","FRSKY","PFD","MOD4","MOD5","TEST","SYST"};
 
 FastSerialPort0(Serial);
 FastSerialPort1(Serial1);
@@ -103,8 +104,9 @@ void setup() {
   ea.smallProtoSelect(7);
   ea.clear();
   ea.cursor(false);
-//  drawSplash();
-  
+  drawSplash();
+  delay(2000);
+
   ea.defineTouchKey(445,3,479,14,0,10," ");
   setMode(1);
 }
@@ -313,7 +315,7 @@ void drawStatusbar() {
       break;
     }
   }    
-  ea.drawText(412,3,'R',GPSFIX[gpsfix]);
+  ea.drawText(412,3,'R',(char*)GPSFIX[gpsfix]);
 
   if (numSats < 5) ea.setTextColor(EA_BLACK,EA_RED);
   else if (numSats < 8) ea.setTextColor(EA_BLACK,EA_YELLOW);
@@ -353,25 +355,25 @@ void drawButtons() {
   ea.setTouchkeyFont(5);
   if (GCS_MODE==1) ea.setTouchkeyColors(UI_BUTTON_ACTIVE);
   else ea.setTouchkeyColors(UI_BUTTON_INACTIVE);
-  ea.defineTouchKey(  0,248, 60,272,0,1,"OVRV");
+  ea.defineTouchKey(  0,248, 60,272,0,1,(char*)TKLABEL[0]);
   if (GCS_MODE==2) ea.setTouchkeyColors(UI_BUTTON_ACTIVE);
   else ea.setTouchkeyColors(UI_BUTTON_INACTIVE);
-  ea.defineTouchKey( 70,248,130,272,0,2,"FRSKY");
+  ea.defineTouchKey( 70,248,130,272,0,2,(char*)TKLABEL[1]);
   if (GCS_MODE==3) ea.setTouchkeyColors(UI_BUTTON_ACTIVE);
   else ea.setTouchkeyColors(UI_BUTTON_INACTIVE);
-  ea.defineTouchKey(140,248,200,272,0,3,"PFD");
+  ea.defineTouchKey(140,248,200,272,0,3,(char*)TKLABEL[2]);
   if (GCS_MODE==4) ea.setTouchkeyColors(UI_BUTTON_ACTIVE);
   else ea.setTouchkeyColors(UI_BUTTON_INACTIVE);
-  ea.defineTouchKey(210,248,270,272,0,4,"MOD4");
+  ea.defineTouchKey(210,248,270,272,0,4,(char*)TKLABEL[3]);
   if (GCS_MODE==5) ea.setTouchkeyColors(UI_BUTTON_ACTIVE);
   else ea.setTouchkeyColors(UI_BUTTON_INACTIVE);
-  ea.defineTouchKey(280,248,340,272,0,5,"MOD5");
+  ea.defineTouchKey(280,248,340,272,0,5,(char*)TKLABEL[4]);
   if (GCS_MODE==6) ea.setTouchkeyColors(UI_BUTTON_ACTIVE);
   else ea.setTouchkeyColors(UI_BUTTON_INACTIVE);
-  ea.defineTouchKey(350,248,410,272,0,6,"TEST");
+  ea.defineTouchKey(350,248,410,272,0,6,(char*)TKLABEL[5]);
   if (GCS_MODE==7) ea.setTouchkeyColors(UI_BUTTON_ACTIVE);
   else ea.setTouchkeyColors(UI_BUTTON_INACTIVE);
-  ea.defineTouchKey(420,248,480,272,0,7,"SYST");
+  ea.defineTouchKey(420,248,480,272,0,7,(char*)TKLABEL[6]);
 }  
 
 void drawSplash() {
@@ -407,18 +409,37 @@ void initOVRV() {
 
 void drawOVRV() {
   char buf[16];
+  char buf2[16];
   ea.setTextFont(10);
   ea.setTextColor(EA_WHITE,EA_BLACK);
   if (gpsfix > 1) {
-    dtostrf(latitude/1e7,2,6,buf);
+    if (latitude < 0) {
+      dtostrf(-1*latitude/1e7,2,6,buf2);
+      strcpy(buf,"S ");
+      strcat(buf,buf2);
+    }
+    else {
+      dtostrf(latitude/1e7,2,6,buf2);
+      strcpy(buf,"N ");
+      strcat(buf,buf2);
+    }
     ea.drawText(125,36,'C',buf);
-    dtostrf(longitude/1e7,2,6,buf);
+    if (longitude < 0) {
+      dtostrf(-1*longitude/1e7,2,6,buf2);
+      strcpy(buf,"W ");
+      strcat(buf,buf2);
+    }
+    else {
+      dtostrf(longitude/1e7,2,6,buf2);
+      strcpy(buf,"E ");
+      strcat(buf,buf2);
+    }
     ea.drawText(365,36,'C',buf);
-    sprintf(buf,"%03d",cog/100);
+    sprintf(buf,"%3d",cog/100);
     ea.drawText(105,86,'R',buf);
-    sprintf(buf,"%05d",altitude);
+    sprintf(buf,"%5d",altitude);
     if (altitude < 60000) ea.drawText(225,86,'R',buf);
-    sprintf(buf,"%03d",grs);
+    sprintf(buf,"%3d",grs);
     ea.drawText(465,86,'R',buf);
   }
   else {
@@ -429,7 +450,7 @@ void drawOVRV() {
     ea.drawText(465,86,'R',"   ---");
   }
   ea.setTextColor(EA_WHITE,EA_BLACK);
-  sprintf(buf,"%03d",ias);
+  sprintf(buf,"%3d",ias);
   ea.drawText(345,86,'R',buf);
   dtostrf(vbat/1000.0,2,2,buf);
   ea.drawText(105,136,'R',buf);
@@ -451,7 +472,7 @@ void initPFD() {
 }
 
 void drawPFD() {
-  char buf[16];
+  char buf[8];
   drawATTI(100,136,pitch,roll);
   ea.updateInstrument(1,heading/2+1);
   ea.updateInstrument(2,heading/2+1);
@@ -494,7 +515,7 @@ void destroyPFD() {
 }
 
 void initSystem() {
-  char buf[16];
+  char buf[32];
   ea.defineBargraph ('O',1,430,24,470,220,0,100,5);
   ea.setTextFont(5);
   ea.setTextColor(EA_WHITE,EA_BLACK);
@@ -565,20 +586,6 @@ void drawATTI(int x, int y, int pitch, int roll) {
   ea.drawLine(x,y-5,x,y+5);
   oxs=xs; oys=ys; oxe=xe; oye=ye;
   oxss=xss; oyss=yss; oxes=xes; oyes=yes;
-}
-
-char *ftoa(char *a, double f, int precision)
-{
-  long p[] = {0,10,100,1000,10000,100000,1000000,10000000,100000000};
-  
-  char *ret = a;
-  long heiltal = (long)f;
-  itoa(heiltal, a, 10);
-  while (*a != '\0') a++;
-  *a++ = '.';
-  long desimal = abs((long)((f - heiltal) * p[precision]));
-  itoa(desimal, a, 10);
-  return ret;
 }
 
 int freeRam() {
