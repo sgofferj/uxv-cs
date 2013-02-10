@@ -8,9 +8,11 @@ Changelog
 --------------------------------------------------------------------
 
 ---- 10feb2013
+- added metric, imperial land and nautic display modes
 - changed PFD VSI from numerical to graphical
 - added status bar indicator for HEARTBEAT.custom_mode
 - minor fixes
+- removed all uses of String object from sketch and eDIPTFT lib
 - new methods for eDIPTFT lib
 
 ---- 05feb2013

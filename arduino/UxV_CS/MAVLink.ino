@@ -14,6 +14,7 @@ void gcs_handleMessage(mavlink_message_t* msg)
         received_sysid = (*msg).sysid; // save the sysid and compid of the received heartbeat for use in sending new messages
         received_compid = (*msg).compid;
         bmode=packet.base_mode;
+        cmode=packet.custom_mode;
       }
       break;
     }
@@ -46,7 +47,8 @@ void gcs_handleMessage(mavlink_message_t* msg)
       mavlink_msg_global_position_int_decode(msg, &packet);
       latitude = packet.lat;
       longitude = packet.lon;
-      altitude = packet.alt;
+      if (dmode == 0) altitude = packet.alt/1000;
+      else if ( (dmode == 1) || (dmode == 2) ) altitude = (packet.alt/1000)*3.28084;
       status_gps=1;
       break;
     }
@@ -61,9 +63,14 @@ void gcs_handleMessage(mavlink_message_t* msg)
       mavlink_vfr_hud_t packet;
       mavlink_msg_vfr_hud_decode(msg, &packet);        
       heading = packet.heading;
-      ias = packet.airspeed;
-      grs = packet.groundspeed;
-      vsi=packet.climb;
+      if (dmode == 0) ias = packet.airspeed*3.6;
+      else if (dmode == 1) ias = packet.airspeed*2.24;
+      else if (dmode == 2) ias = packet.airspeed*1.94;
+      if (dmode == 0) grs = packet.groundspeed*3.6;
+      else if (dmode == 1) grs = packet.groundspeed*2.24;
+      else if (dmode == 2) grs = packet.groundspeed*1.94;
+      if (dmode == 0) vsi=packet.climb;
+      else if ( (dmode == 1) || (dmode == 2) ) vsi=packet.climb*3.28084;
      break;
     }
     case MAVLINK_MSG_ID_RAW_PRESSURE:

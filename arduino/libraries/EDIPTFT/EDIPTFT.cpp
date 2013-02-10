@@ -24,6 +24,8 @@
 #include <FastSerial.h>
 #include <EDIPTFT.h>
 
+#define DEBUG false
+
 EDIPTFT::EDIPTFT(int port, int smallprotocol) {
   _port = port;
   _smallprotocol = smallprotocol;
@@ -109,6 +111,15 @@ unsigned char EDIPTFT::bytesAvailable() {
 }  
 
 void EDIPTFT::sendData(char* data, char len) {
+  if (DEBUG) {
+    char i;
+    for (i=0;i<len;i++) {
+      Serial.print(byte(data[i]),HEX);
+      Serial.print(" ");
+    }
+    Serial.println();
+  }  
+    
   if (_smallprotocol > 0) {
     sendSmall(data,len);
   }
@@ -140,7 +151,6 @@ void EDIPTFT::sendSmall(char* data, char len) {
     if (bytesAvailable() > 0) {
       if (readByte() == ACK) ok = 1;
       else {
-	Serial.println("NAK");
 	ok = 0;
       }
     }
@@ -388,17 +398,16 @@ void EDIPTFT::setTextAngle(char angle) {
   sendData(command,4);
 }
 
-void EDIPTFT::drawText(int x1, int y1, char justification,String text) {
-  byte len = text.length();
+void EDIPTFT::drawText(int x1, int y1, char justification,char* text) {
+  byte len = strlen(text);
   byte i;
   char helper [len+8];
   char command [] = {
     27,'Z',justification,
     lowByte(x1),highByte(x1),lowByte(y1),highByte(y1),
   };
-  for (i=0;i<7;i++) helper[i] = command[i];
-  for (i=0;i<len;i++) helper[i+7] = text[i];
-  helper[len+7] = 0;
+  for (i=0;i<=6;i++) helper[i] = command[i];
+  for (i=0;i<=len;i++) helper[i+7] = text[i];
   sendData(helper,len+8);
 }
 
@@ -430,19 +439,19 @@ void EDIPTFT::drawRectf(int x1, int y1, int x2, int y2, char color) {
   sendData(command,12);
 }
 
-void EDIPTFT::defineTouchKey(int x1, int y1, int x2, int y2, char down, char up, String text) {
-  byte len = text.length();
+void EDIPTFT::defineTouchKey(int x1, int y1, int x2, int y2, char down, char up, char* text) {
+  byte len = strlen(text);
   byte i;
-  char helper [len+14];
+  char helper [len+13];
   char command [] = {
     27,'A','T',
     lowByte(x1),highByte(x1),lowByte(y1),highByte(y1),
     lowByte(x2),highByte(x2),lowByte(y2),highByte(y2),
     down,up
   };
-  for (i=0;i<13;i++) helper[i] = command[i];
-  for (i=0;i<len;i++) helper[i+13] = text[i];
-  helper[len+13] = 0;
+  for (i=0;i<=12;i++) helper[i] = command[i];
+  for (i=0;i<=len;i++) helper[i+13] = text[i];
+
   sendData(helper,len+14);
 }
 
