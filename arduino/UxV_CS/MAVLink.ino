@@ -37,7 +37,6 @@ void gcs_handleMessage(mavlink_message_t* msg)
       mav_utime = packet.time_usec;
       numSats = packet.satellites_visible;
       cog = packet.cog;
-      status_gps=1;
       break;
     }
     case MAVLINK_MSG_ID_GLOBAL_POSITION_INT:
@@ -47,9 +46,8 @@ void gcs_handleMessage(mavlink_message_t* msg)
       mavlink_msg_global_position_int_decode(msg, &packet);
       latitude = packet.lat;
       longitude = packet.lon;
-      if (dmode == 0) altitude = packet.alt/1000;
-      else if ( (dmode == 1) || (dmode == 2) ) altitude = (packet.alt/1000)*3.28084;
-      status_gps=1;
+      if (GCS_UNITS == 0) altitude = packet.alt/1000;
+      else if ( (GCS_UNITS == 1) || (GCS_UNITS == 2) ) altitude = (packet.alt/1000)*3.28084;
       break;
     }
     case MAVLINK_MSG_ID_GPS_STATUS:
@@ -63,14 +61,14 @@ void gcs_handleMessage(mavlink_message_t* msg)
       mavlink_vfr_hud_t packet;
       mavlink_msg_vfr_hud_decode(msg, &packet);        
       heading = packet.heading;
-      if (dmode == 0) ias = packet.airspeed*3.6;
-      else if (dmode == 1) ias = packet.airspeed*2.24;
-      else if (dmode == 2) ias = packet.airspeed*1.94;
-      if (dmode == 0) grs = packet.groundspeed*3.6;
-      else if (dmode == 1) grs = packet.groundspeed*2.24;
-      else if (dmode == 2) grs = packet.groundspeed*1.94;
-      if (dmode == 0) vsi=packet.climb;
-      else if ( (dmode == 1) || (dmode == 2) ) vsi=packet.climb*3.28084;
+      if (GCS_UNITS == 0) ias = packet.airspeed*3.6;
+      else if (GCS_UNITS == 1) ias = packet.airspeed*2.24;
+      else if (GCS_UNITS == 2) ias = packet.airspeed*1.94;
+      if (GCS_UNITS == 0) grs = packet.groundspeed*3.6;
+      else if (GCS_UNITS == 1) grs = packet.groundspeed*2.24;
+      else if (GCS_UNITS == 2) grs = packet.groundspeed*1.94;
+      if (GCS_UNITS == 0) vsi=packet.climb;
+      else if ( (GCS_UNITS == 1) || (GCS_UNITS == 2) ) vsi=packet.climb*3.28084;
      break;
     }
     case MAVLINK_MSG_ID_RAW_PRESSURE:
@@ -95,7 +93,6 @@ boolean gcs_update()
 {
     boolean result = false;
     status_mavlink=0;
-    status_gps=0;
     // receive new packets
     mavlink_message_t msg;
     mavlink_status_t status;

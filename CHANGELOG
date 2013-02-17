@@ -7,6 +7,15 @@ http://stefan.gofferje.net/uxv-cs
 Changelog
 --------------------------------------------------------------------
 
+---- 17feb2013
+- minor improvements and bugfixes
+
+---- 10feb2013
+- introduced saving of settings in EEPROM
+- minor improvements and bugfixes
+- worked on code readability
+- added comments to code
+
 ---- 10feb2013
 - added metric, imperial land and nautic display modes
 - changed PFD VSI from numerical to graphical

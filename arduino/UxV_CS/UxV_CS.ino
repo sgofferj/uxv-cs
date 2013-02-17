@@ -1,4 +1,5 @@
 //#include <progmem.h>
+#include <EEPROM.h>
 #include <FastSerial.h>
 #include <AP_Common.h>
 #include <AP_Math.h>
@@ -8,8 +9,8 @@
 
 #define _VERSION "V0.47"
 
-const char *GPSFIX[] = {" NOFIX "," NOFIX "," 2DFIX "," 3DFIX "};
-const char *TKLABEL[] = {"OVRV","FRSKY","PFD","MOD4","MOD5","TEST","SYST"};
+const char *GPSFIX[] = {" NOFIX "," NOFIX "," 2DFIX "," 3DFIX "}; // Labels for GPS-status in status bar
+const char *TKLABEL[] = {"OVRV","FRSKY","PFD","MOD4","MOD5","TEST","SYST"}; // Touchkey labels
 
 FastSerialPort0(Serial);
 FastSerialPort1(Serial1);
@@ -40,6 +41,7 @@ unsigned long timer;
 #define MAV_DATA_STREAM_EXTRA1_RATE 1
 #define MAV_DATA_STREAM_EXTRA2_RATE 4
 
+// APM custom modes in heartbeat package
 #define CUST_MODE_MANUAL 0
 #define CUST_MODE_CIRCLE 1
 #define CUST_MODE_STABILIZE 2
@@ -53,11 +55,17 @@ unsigned long timer;
 #define CUST_MODE_INITIALISING 16
 
 // Look and feel
-#define UI_BUTTON_ACTIVE EA_MINT,EA_BLACK,EA_MINT,EA_YELLOW,EA_BLACK,EA_YELLOW
-#define UI_BUTTON_INACTIVE EA_WHITE,EA_BLACK,EA_WHITE,EA_YELLOW,EA_BLACK,EA_YELLOW
-#define PFD_SUPP_THICK 4
+#define UI_BUTTON_ACTIVE EA_MINT,EA_BLACK,EA_MINT,EA_YELLOW,EA_BLACK,EA_YELLOW // Colors of touchbutton when page selected
+#define UI_BUTTON_INACTIVE EA_WHITE,EA_BLACK,EA_WHITE,EA_YELLOW,EA_BLACK,EA_YELLOW // Colors of touchbutton when page not selected
+#define PFD_SUPP_THICK 4 // Thickness of +/- 45° pitch indicator lines in PFD attitude indicator (pixels)
+
+// EEPROM storage
+#define EE_BACKLIGHT 0 // Backlight level
+#define EE_GCS_MODE 1  // GCS display mode = page which is displayed
+#define EE_GCS_UNITS 2 // Display units, 0=metric, 1=imperial land, 2=imperial nautic
 
 
+// Stuff taken over from ArduStation - do we need this?
 unsigned long Latitude_Home=0;
 unsigned long Longitud_Home=0;
 unsigned long Altitude_Home = 0;
@@ -67,35 +75,37 @@ int Angle_Home=0;
 int Constrain_Angle_Home = 0;
 unsigned long Bearing_Home=0;
 unsigned long SvBearingHome = 0;
-
 float offset = 0;
-// flight data
-float pitch=0;
-float roll=0;
-float yaw=0;
-long altitude=0;
-int32_t longitude=0;
-int32_t latitude=0;
-unsigned int ias=0;
-unsigned int grs=0;
-int vsi=0;
-int numSats=0;
-unsigned int vbat=0;
-int bmode=0;
-int cmode=0;
-int dmode=0; // 0=metric, 1=imperial land, 2=imperial nautic
-int gpsfix=0;
 int beat=0;
-int status_mavlink=0;
-int status_frsky=0;
-int status_gps=0;
-int heading=0;
-unsigned int cog=0;
-unsigned long mav_utime=0;
-uint8_t received_sysid=0;   ///< ID of heartbeat sender
-uint8_t received_compid=0;  // component id of heartbeat sender
 
-int GCS_MODE = 0;
+// Flight data
+int32_t longitude=0; // GPS lon
+int32_t latitude=0;  // GPS lat
+float pitch=0;       // Pitch angle
+float roll=0;        // Roll angle
+float yaw=0;         // Yaw angle
+long altitude=0;     // Altitude ( --> Find out if GPS or baro!)
+unsigned int ias=0;  // Indicated air speed
+unsigned int grs=0;  // Ground speed
+int heading=0;       // Heading (not course over ground!)
+unsigned int cog=0;  // Course over ground (from GPS)
+int vsi=0;           // Vertical speed
+
+// Technical data
+uint8_t received_sysid=0;   // ID of heartbeat sender
+uint8_t received_compid=0;  // component id of heartbeat sender
+int bmode=0;                // MAVLink basic mode
+int cmode=0;                // MAVLink custom mode
+int gpsfix=0;               // GPS fix status, 0 = no fix, 1 = dead reckoning, 2 = 2D-fix, 3 = 3D-fix
+int numSats=0;              // Number of satellites used in position fix
+unsigned int vbat=0;        // battery voltage
+unsigned long mav_utime=0;  // ??
+
+// Ground station stuff
+int status_mavlink=0; // Changes to 1 when a valid MAVLink package was received, 0 when no package or an invalid package was received
+int status_frsky=0;   // Changes to 1 when a valid FrSky package was received, 0 when no package or an invalid package was received
+int GCS_MODE=0;       // GCS display mode = page which is displayed
+int GCS_UNITS=0;      // Display units, 0=metric, 1=imperial land, 2=imperial nautic
 
 void setup() {
   Serial.begin(57600);
@@ -104,29 +114,28 @@ void setup() {
   ea.smallProtoSelect(7);
   ea.clear();
   ea.cursor(false);
+  
+  GCS_MODE = EEPROM.read(EE_GCS_MODE);
+  GCS_UNITS = EEPROM.read(EE_GCS_UNITS);
+  
   drawSplash();
   delay(2000);
-
-  ea.defineTouchKey(445,3,479,14,0,10," ");
-  setMode(1);
+  
+  ea.defineTouchKey(445,3,479,14,0,10," "); // define touchkey for unit change
+  setMode(GCS_MODE);
 }
 
 void loop() {
-  if (gcs_update()) {
+  if (gcs_update()) {                  // Only update screen when a valid MAVLink package was received
     switch (GCS_MODE) {
-      case 1 : {
-        drawOVRV();
-        break;
-      }
-      case 3 : {
-        drawPFD();
-        break;
-      }
+      case 1 : { drawOVRV(); break; }
+      case 3 : { drawPFD(); break; }
     }
     drawStatusbar();
   }
-  if ((status_mavlink == 1) && (!gcs_update())) drawStatusbar();
-  if (ea.datainBuffer() >0) parseSerial();
+  if ((status_mavlink == 1) && (!gcs_update())) drawStatusbar(); // When no valid MAVLink package was received but the status still shows 1,
+                                                                 // update status bar, so the indicator goes red.
+  if (ea.datainBuffer() >0) parseSerial();                       // If the display has data for us, go and get it
 }
 
 void parseSerial() {
@@ -137,37 +146,17 @@ void parseSerial() {
   if (data[0] == 27) {
     if ((data[1] == 'A') && (data[2] == 1)) {
       switch (data[3]) {
-        case 1 : {
-          setMode(1);
-          break;
-        }
-        case 2 : {
-          setMode(2);
-          break;
-        }
-        case 3 : {
-          setMode(3);
-          break;
-        }
-        case 4 : {
-          setMode(4);
-          break;
-        }
-        case 5 : {
-          setMode(5);
-          break;
-        }
-        case 6 : {
-          setMode(6);
-          break;
-        }
-        case 7 : {
-          setMode(7);
-          break;
-        }
+        case 1 : { setMode(1); break; }
+        case 2 : { setMode(2); break; }
+        case 3 : { setMode(3); break; }
+        case 4 : { setMode(4); break; }
+        case 5 : { setMode(5); break; }
+        case 6 : { setMode(6); break; }
+        case 7 : { setMode(7); break; }
         case 10 : {
-          if (dmode < 2) dmode ++;
-          else dmode = 0;
+          if (GCS_UNITS < 2) GCS_UNITS ++;
+          else GCS_UNITS = 0;
+          EEPROM.write(EE_GCS_UNITS,GCS_UNITS);
           break;
         }
       }
@@ -176,41 +165,29 @@ void parseSerial() {
 }
 
 void setMode(int mode) {
-  switch (GCS_MODE) {
-    case 3 : {
-      destroyPFD();
-      break;
-    }
-    case 7 : {
-      destroySystem();
-      break;
-    }
+  switch (GCS_MODE) {                     // First, check the old mode and destroy display objects if necessary
+    case 3 : { destroyPFD(); break; }
+    case 7 : { destroySystem(); break; }
   }
-  GCS_MODE = mode;
-  ea.clear();
+  
+  GCS_MODE = mode;                        // Then, set the mode
+  EEPROM.write(EE_GCS_MODE,GCS_MODE);     // write the mode to the EEPROM
+  ea.clear();                             // clear the display
 
-  drawButtons();
+  drawButtons();                          // draw the touchkeys
 
-  switch (mode) {
-    case 1 : {
-      initOVRV();
-      break;
-    }
-    case 3 : {
-      initPFD();
-      break;
-    }
-    case 7 : {
-      initSystem();
-      break;
-    }
+  switch (mode) {                         // Finally, if the new mode has some display objects to initialize, do it
+    case 1 : { initOVRV(); break; }
+    case 3 : { initPFD(); break; }
+    case 7 : { initSystem(); break; }
   }
 }    
 
 void drawStatusbar() {
   char buf[8];
   ea.setTextFont(3);
-
+  
+  // Motor arm status
   if ((bmode & MAV_MODE_FLAG_SAFETY_ARMED) == MAV_MODE_FLAG_SAFETY_ARMED) {
     ea.setTextColor(EA_BLACK,EA_RED);
     ea.drawText(24,3,'C',"  ARM  ");
@@ -219,6 +196,8 @@ void drawStatusbar() {
     ea.setTextColor(EA_BLACK,EA_GREEN);
     ea.drawText(24,3,'C'," D-ARM ");
   }
+  
+  // MAVLink basic mode
   if ((bmode & MAV_MODE_FLAG_AUTO_ENABLED) == MAV_MODE_FLAG_AUTO_ENABLED) {
     ea.setTextColor(EA_BLACK,EA_RED);
     ea.drawText(72,3,'C'," AUTO ");
@@ -236,114 +215,62 @@ void drawStatusbar() {
     ea.drawText(72,3,'C'," MANU ");
   }
 
+  // MAVLink custom mode
   switch (cmode) {
-    case CUST_MODE_MANUAL : {
-      ea.setTextColor(EA_BLACK,EA_GREEN);
-      ea.drawText(116,3,'C'," MANU ");
-      break;;
-    }
-    case CUST_MODE_CIRCLE : {
-      ea.setTextColor(EA_BLACK,EA_RED);
-      ea.drawText(116,3,'C'," CIRC ");
-      break;;
-    }
-    case CUST_MODE_STABILIZE : {
-      ea.setTextColor(EA_BLACK,EA_LIGHTBLUE);
-      ea.drawText(116,3,'C'," STAB ");
-      break;;
-    }
-    case CUST_MODE_TRAINING : {
-      ea.setTextColor(EA_BLACK,EA_PURPLE);
-      ea.drawText(116,3,'C'," TRAI ");
-      break;;
-    }
-    case CUST_MODE_FLY_BY_WIRE_A : {
-      ea.setTextColor(EA_BLACK,EA_BLUE);
-      ea.drawText(116,3,'C'," FBWA ");
-      break;;
-    }
-    case CUST_MODE_FLY_BY_WIRE_B : {
-      ea.setTextColor(EA_BLACK,EA_BLUE);
-      ea.drawText(116,3,'C'," FBWB ");
-      break;;
-    }
-    case CUST_MODE_RTL : {
-      ea.setTextColor(EA_BLACK,EA_YELLOW);
-      ea.drawText(116,3,'C'," RTL  ");
-      break;;
-    }
-    case CUST_MODE_LOITER : {
-      ea.setTextColor(EA_BLACK,EA_YELLOW);
-      ea.drawText(116,3,'C'," LOIT ");
-      break;;
-    }
-    case CUST_MODE_GUIDED : {
-      ea.setTextColor(EA_BLACK,EA_YELLOW);
-      ea.drawText(116,3,'C'," GUID ");
-      break;;
-    }
-    case CUST_MODE_INITIALISING : {
-      ea.setTextColor(EA_BLACK,EA_CYAN);
-      ea.drawText(116,3,'C'," INIT ");
-      break;;
-    }
+    case CUST_MODE_MANUAL :        { ea.setTextColor(EA_BLACK,EA_GREEN);     ea.drawText(116,3,'C'," MANU "); break; }
+    case CUST_MODE_CIRCLE :        { ea.setTextColor(EA_BLACK,EA_RED);       ea.drawText(116,3,'C'," CIRC "); break; }
+    case CUST_MODE_STABILIZE :     { ea.setTextColor(EA_BLACK,EA_LIGHTBLUE); ea.drawText(116,3,'C'," STAB "); break; }
+    case CUST_MODE_TRAINING :      { ea.setTextColor(EA_BLACK,EA_PURPLE);    ea.drawText(116,3,'C'," TRAI "); break; }
+    case CUST_MODE_FLY_BY_WIRE_A : { ea.setTextColor(EA_BLACK,EA_BLUE);      ea.drawText(116,3,'C'," FBWA "); break; }
+    case CUST_MODE_FLY_BY_WIRE_B : { ea.setTextColor(EA_BLACK,EA_BLUE);      ea.drawText(116,3,'C'," FBWB "); break; }
+    case CUST_MODE_AUTO          : { ea.setTextColor(EA_BLACK,EA_RED);       ea.drawText(116,3,'C'," AUTO "); break; }
+    case CUST_MODE_RTL :           { ea.setTextColor(EA_BLACK,EA_YELLOW);    ea.drawText(116,3,'C'," RTL  "); break; }
+    case CUST_MODE_LOITER :        { ea.setTextColor(EA_BLACK,EA_YELLOW);    ea.drawText(116,3,'C'," LOIT "); break; }
+    case CUST_MODE_GUIDED :        { ea.setTextColor(EA_BLACK,EA_YELLOW);    ea.drawText(116,3,'C'," GUID "); break; }
+    case CUST_MODE_INITIALISING :  { ea.setTextColor(EA_BLACK,EA_CYAN);      ea.drawText(116,3,'C'," INIT "); break; }
   }
 
+  // FrSky package indicator
   if (status_frsky == 1) ea.setTextColor(EA_BLACK,EA_GREEN);
   else ea.setTextColor(EA_BLACK,EA_RED);
   ea.drawText(317,3,'R'," FRSKY ");
 
+  // MAVLink package indicator
   if (status_mavlink == 1) ea.setTextColor(EA_BLACK,EA_GREEN);
   else ea.setTextColor(EA_BLACK,EA_RED);
   ea.drawText(361,3,'R'," MAVL ");
   
+  // GPS status indicator
   switch (gpsfix) {
-    case 0 : {
-      ea.setTextColor(EA_BLACK,EA_RED);
-      break;
-    }
-    case 1 : {
-      ea.setTextColor(EA_BLACK,EA_RED);
-      break;
-    }
-    case 2 : {
-      ea.setTextColor(EA_BLACK,EA_YELLOW);
-      break;
-    }
-    case 3 : {
-      ea.setTextColor(EA_BLACK,EA_GREEN);
-      break;
-    }
+    case 0 : { ea.setTextColor(EA_BLACK,EA_RED); break; }
+    case 1 : { ea.setTextColor(EA_BLACK,EA_RED); break; }
+    case 2 : { ea.setTextColor(EA_BLACK,EA_YELLOW); break; }
+    case 3 : { ea.setTextColor(EA_BLACK,EA_GREEN); break; }
   }    
   ea.drawText(412,3,'R',(char*)GPSFIX[gpsfix]);
 
+  // GPS number of satellites
   if (numSats < 5) ea.setTextColor(EA_BLACK,EA_RED);
   else if (numSats < 8) ea.setTextColor(EA_BLACK,EA_YELLOW);
   else if (numSats >= 8) ea.setTextColor(EA_BLACK,EA_GREEN);
   sprintf(buf," %02d ",numSats);
   ea.drawText(442,3,'R',buf);
   
+  // Display units
   ea.setTextColor(EA_BLACK,EA_WHITE);
-  switch (dmode) {
-    case 0 : {
-      ea.drawText(479,3,'R'," MET ");
-      break;
-    }
-    case 1 : {
-      ea.drawText(479,3,'R'," IMP ");
-      break;
-    }
-    case 2 : {
-      ea.drawText(479,3,'R'," NAU ");
-      break;
-    }
+  switch (GCS_UNITS) {
+    case 0 : { ea.drawText(479,3,'R'," MET "); break; }
+    case 1 : { ea.drawText(479,3,'R'," IMP "); break; }
+    case 2 : { ea.drawText(479,3,'R'," NAU "); break; }
   }    
 
+  // Separator
   ea.setLineColor(EA_WHITE,1);
   ea.drawLine(0,18,480,18);
 }
 
 void drawButtons() {
+  // First, destroy the old touchkeys - even is the display was cleared, the touchkey definitions are still valid
   ea.removeTouchArea(1,1);
   ea.removeTouchArea(2,1);
   ea.removeTouchArea(3,1);
@@ -351,8 +278,12 @@ void drawButtons() {
   ea.removeTouchArea(5,1);
   ea.removeTouchArea(6,1);
   ea.removeTouchArea(7,1);
+  
+  // Text color and font
   ea.setTouchkeyLabelColors(EA_BLACK,EA_BLACK);
   ea.setTouchkeyFont(5);
+  
+  // Define and draw new touchkeys
   if (GCS_MODE==1) ea.setTouchkeyColors(UI_BUTTON_ACTIVE);
   else ea.setTouchkeyColors(UI_BUTTON_INACTIVE);
   ea.defineTouchKey(  0,248, 60,272,0,1,(char*)TKLABEL[0]);
@@ -443,17 +374,22 @@ void drawOVRV() {
     ea.drawText(465,86,'R',buf);
   }
   else {
-    ea.drawText(125,36,'C',"    ---    ");
-    ea.drawText(365,36,'C',"    ---    ");
+    ea.drawText(125,36,'C'," --.------ ");
+    ea.drawText(365,36,'C'," --.------ ");
     ea.drawText(105,86,'R',"   ---");
-    ea.drawText(225,86,'R',"   ---");
+    ea.drawText(225,86,'R'," -----");
     ea.drawText(465,86,'R',"   ---");
   }
   ea.setTextColor(EA_WHITE,EA_BLACK);
   sprintf(buf,"%3d",ias);
   ea.drawText(345,86,'R',buf);
+  
   dtostrf(vbat/1000.0,2,2,buf);
   ea.drawText(105,136,'R',buf);
+  sprintf(buf,"%5d",bmode);
+  ea.drawText(225,136,'R',buf);
+  sprintf(buf,"%5d",cmode);
+  ea.drawText(345,136,'R',buf);
 }
 
 void initPFD() {
