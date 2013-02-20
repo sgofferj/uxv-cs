@@ -100,6 +100,10 @@ int gpsfix=0;               // GPS fix status, 0 = no fix, 1 = dead reckoning, 2
 int numSats=0;              // Number of satellites used in position fix
 unsigned int vbat=0;        // battery voltage
 unsigned long mav_utime=0;  // ??
+uint8_t frsky_rx_a1=0;      // FrSky receiver voltage
+uint8_t frsky_rx_a2=0;      // FrSky receiver analog input 2
+uint8_t frsky_link_up=0;    // FrSky link quality TX -> RX
+uint8_t frsky_link_dn=0;    // FrSky link quality RX -> TX
 
 // Ground station stuff
 int status_mavlink=0; // Changes to 1 when a valid MAVLink package was received, 0 when no package or an invalid package was received
@@ -110,7 +114,8 @@ int GCS_UNITS=0;      // Display units, 0=metric, 1=imperial land, 2=imperial na
 void setup() {
   Serial.begin(57600);
   Serial1.begin(57600,256,16);
-  Serial3.begin(115200);
+  Serial2.begin(9600,256,16);
+  Serial3.begin(115200,256,256);
   ea.smallProtoSelect(7);
   ea.clear();
   ea.cursor(false);
@@ -129,6 +134,7 @@ void loop() {
   if (gcs_update()) {                  // Only update screen when a valid MAVLink package was received
     switch (GCS_MODE) {
       case 1 : { drawOVRV(); break; }
+      case 2 : { drawFRSKY(); break; }
       case 3 : { drawPFD(); break; }
     }
     drawStatusbar();
@@ -164,6 +170,39 @@ void parseSerial() {
   }
 }
 
+boolean gcs_update()
+{
+    boolean result = false;
+    status_mavlink=0;
+    status_frsky=0;
+    mavlink_message_t msg;
+    uint8_t frsky_msg [11];
+    mavlink_status_t status;
+
+    while (Serial1.available())
+    {
+      uint8_t c = Serial1.read();
+      if(mavlink_parse_char(0, c, &msg, &status)) {
+        gcs_handleMessage(&msg);
+        status_mavlink = 1;
+        result=true;
+      }
+    }
+    if ( (GCS_MODE == 1) || (GCS_MODE == 2) )
+    {
+      while (Serial2.available())
+      {
+        uint8_t c = Serial2.read();
+        if (FRSKY_parse_char(c,frsky_msg)) {
+          FRSKY_handle_message(frsky_msg);
+          status_frsky=1;
+          result=true;
+        }
+      }
+    }
+    return result;
+}
+
 void setMode(int mode) {
   switch (GCS_MODE) {                     // First, check the old mode and destroy display objects if necessary
     case 3 : { destroyPFD(); break; }
@@ -178,6 +217,7 @@ void setMode(int mode) {
 
   switch (mode) {                         // Finally, if the new mode has some display objects to initialize, do it
     case 1 : { initOVRV(); break; }
+    case 2 : { initFRSKY(); break; }
     case 3 : { initPFD(); break; }
     case 7 : { initSystem(); break; }
   }
@@ -229,6 +269,9 @@ void drawStatusbar() {
     case CUST_MODE_GUIDED :        { ea.setTextColor(EA_BLACK,EA_YELLOW);    ea.drawText(116,3,'C'," GUID "); break; }
     case CUST_MODE_INITIALISING :  { ea.setTextColor(EA_BLACK,EA_CYAN);      ea.drawText(116,3,'C'," INIT "); break; }
   }
+
+  drawRSSIm(220,2,frsky_link_up);
+  drawRSSI(243,2,frsky_link_dn);
 
   // FrSky package indicator
   if (status_frsky == 1) ea.setTextColor(EA_BLACK,EA_GREEN);
@@ -386,10 +429,39 @@ void drawOVRV() {
   
   dtostrf(vbat/1000.0,2,2,buf);
   ea.drawText(105,136,'R',buf);
-  sprintf(buf,"%5d",bmode);
-  ea.drawText(225,136,'R',buf);
-  sprintf(buf,"%5d",cmode);
-  ea.drawText(345,136,'R',buf);
+}
+
+void initFRSKY() {
+  ea.setLineColor(EA_WHITE,0);
+  ea.setLineThick(1,1);
+  ea.drawLine(0,68,480,68);
+  ea.drawLine(0,118,480,118);
+  ea.drawLine(0,168,480,168);
+  ea.drawLine(0,218,480,218);
+  ea.drawLine(240,18,240,218);
+  ea.drawLine(120,18,120,218);
+  ea.drawLine(360,18,360,218);
+  ea.setTextFont(9);
+  ea.setTextColor(EA_WHITE,EA_BLACK);
+  ea.drawText(10,20,'L',"RC RSSI");
+  ea.drawText(130,20,'L',"TELEM RSSI");
+  ea.drawText(250,20,'L',"RX V");
+  ea.drawText(370,20,'L',"A2 V");
+}
+
+void drawFRSKY() {
+  char buf[16];
+  char buf2[16];
+  ea.setTextFont(10);
+  ea.setTextColor(EA_WHITE,EA_BLACK);
+  sprintf(buf,"%5d",frsky_link_up);
+  ea.drawText(105,36,'R',buf);
+  sprintf(buf,"%5d",frsky_link_dn/2);
+  ea.drawText(225,36,'R',buf);
+  dtostrf(frsky_rx_a1*0.0517647058824,2,2,buf);
+  ea.drawText(345,36,'R',buf);
+  dtostrf(frsky_rx_a2*0.0129411764706,2,2,buf);
+  ea.drawText(465,36,'R',buf);
 }
 
 void initPFD() {
@@ -522,6 +594,110 @@ void drawATTI(int x, int y, int pitch, int roll) {
   ea.drawLine(x,y-5,x,y+5);
   oxs=xs; oys=ys; oxe=xe; oye=ye;
   oxss=xss; oyss=yss; oxes=xes; oyes=yes;
+}
+
+void drawRSSI (int x, int y, uint8_t rssi) {
+  if (rssi >= 80) {
+    ea.setLineThick(4,1);
+    ea.setLineColor(EA_GREEN,0);
+    ea.drawLine(x   ,y+12,x   ,y+11);
+    ea.drawLine(x+4 ,y+12,x+4 ,y+9);
+    ea.drawLine(x+8 ,y+12,x+8 ,y+6);
+    ea.drawLine(x+12,y+12,x+12,y+3);
+    ea.drawLine(x+16,y+12,x+16,y);
+  }
+  else if (rssi >= 60) {
+    ea.setLineThick(4,1);
+    ea.setLineColor(EA_GREEN,0);
+    ea.drawLine(x   ,y+12,x   ,y+11);
+    ea.drawLine(x+4 ,y+12,x+4 ,y+9);
+    ea.drawLine(x+8 ,y+12,x+8 ,y+6);
+    ea.drawLine(x+12,y+12,x+12,y+3);
+    ea.setLineColor(EA_BLACK,0);
+    ea.drawLine(x+16,y+12,x+16,y);
+  }
+  else if (rssi >= 40) {
+    ea.setLineThick(4,1);
+    ea.setLineColor(EA_YELLOW,0);
+    ea.drawLine(x   ,y+12,x   ,y+11);
+    ea.drawLine(x+4 ,y+12,x+4 ,y+9);
+    ea.drawLine(x+8 ,y+12,x+8 ,y+6);
+    ea.setLineColor(EA_BLACK,0);
+    ea.drawLine(x+12,y+12,x+12,y+3);
+    ea.drawLine(x+16,y+12,x+16,y);
+  }
+  else if (rssi >= 20) {
+    ea.setLineThick(4,1);
+    ea.setLineColor(EA_YELLOW,0);
+    ea.drawLine(x   ,y+12,x   ,y+11);
+    ea.drawLine(x+4 ,y+12,x+4 ,y+9);
+    ea.setLineColor(EA_BLACK,0);
+    ea.drawLine(x+8 ,y+12,x+8 ,y+6);
+    ea.drawLine(x+12,y+12,x+12,y+3);
+    ea.drawLine(x+16,y+12,x+16,y);
+  }
+  else if (rssi >= 0) {
+    ea.setLineThick(4,1);
+    ea.setLineColor(EA_RED,0);
+    ea.drawLine(x   ,y+12,x   ,y+11);
+    ea.setLineColor(EA_BLACK,0);
+    ea.drawLine(x+4 ,y+12,x+4 ,y+9);
+    ea.drawLine(x+8 ,y+12,x+8 ,y+6);
+    ea.drawLine(x+12,y+12,x+12,y+3);
+    ea.drawLine(x+16,y+12,x+16,y);
+  }
+}
+
+void drawRSSIm (int x, int y, uint8_t rssi) {
+  if (rssi >= 80) {
+    ea.setLineThick(4,1);
+    ea.setLineColor(EA_GREEN,0);
+    ea.drawLine(x   ,y+12,x   ,y);
+    ea.drawLine(x+4 ,y+12,x+4 ,y+3);
+    ea.drawLine(x+8 ,y+12,x+8 ,y+6);
+    ea.drawLine(x+12,y+12,x+12,y+9);
+    ea.drawLine(x+16,y+12,x+16,y+11);
+  }
+  else if (rssi >= 60) {
+    ea.setLineThick(4,1);
+    ea.setLineColor(EA_BLACK,0);
+    ea.drawLine(x   ,y+12,x   ,y);
+    ea.setLineColor(EA_GREEN,0);
+    ea.drawLine(x+4 ,y+12,x+4 ,y+3);
+    ea.drawLine(x+8 ,y+12,x+8 ,y+6);
+    ea.drawLine(x+12,y+12,x+12,y+9);
+    ea.drawLine(x+16,y+12,x+16,y+11);
+  }
+  else if (rssi >= 40) {
+    ea.setLineThick(4,1);
+    ea.setLineColor(EA_BLACK,0);
+    ea.drawLine(x   ,y+12,x   ,y);
+    ea.drawLine(x+4 ,y+12,x+4 ,y+3);
+    ea.setLineColor(EA_YELLOW,0);
+    ea.drawLine(x+8 ,y+12,x+8 ,y+6);
+    ea.drawLine(x+12,y+12,x+12,y+9);
+    ea.drawLine(x+16,y+12,x+16,y+11);
+  }
+  else if (rssi >= 20) {
+    ea.setLineThick(4,1);
+    ea.setLineColor(EA_BLACK,0);
+    ea.drawLine(x   ,y+12,x   ,y);
+    ea.drawLine(x+4 ,y+12,x+4 ,y+3);
+    ea.drawLine(x+8 ,y+12,x+8 ,y+6);
+    ea.setLineColor(EA_YELLOW,0);
+    ea.drawLine(x+12,y+12,x+12,y+9);
+    ea.drawLine(x+16,y+12,x+16,y+11);
+  }
+  else if (rssi >= 0) {
+    ea.setLineThick(4,1);
+    ea.setLineColor(EA_BLACK,0);
+    ea.drawLine(x   ,y+12,x   ,y);
+    ea.drawLine(x+4 ,y+12,x+4 ,y+3);
+    ea.drawLine(x+8 ,y+12,x+8 ,y+6);
+    ea.drawLine(x+12,y+12,x+12,y+9);
+    ea.setLineColor(EA_RED,0);
+    ea.drawLine(x+16,y+12,x+16,y+11);
+  }
 }
 
 int freeRam() {

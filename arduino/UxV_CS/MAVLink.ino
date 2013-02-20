@@ -89,30 +89,6 @@ void gcs_handleMessage(mavlink_message_t* msg)
   }
 }
 
-boolean gcs_update()
-{
-    boolean result = false;
-    status_mavlink=0;
-    // receive new packets
-    mavlink_message_t msg;
-    mavlink_status_t status;
-
-    // process received bytes
-    while(Serial1.available())
-    {
-        uint8_t c = Serial1.read();
-//        Serial.print((byte)c,HEX);
-//        Serial.print(" ");
-        // Try to get a new message
-        if(mavlink_parse_char(0, c, &msg, &status)) {
-          gcs_handleMessage(&msg);
-          status_mavlink = 1;
-          result=true;
-        }
-    }
-    return result;
-}
-
 void send_message(mavlink_message_t* msg)
 {
   uint8_t buf[MAVLINK_MAX_PACKET_LEN];
