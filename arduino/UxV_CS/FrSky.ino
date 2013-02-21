@@ -21,8 +21,8 @@
 //      Boston, MA 02110-1301 USA
 //
 
-#define FRSKY_MSG_LENGTH 9
-#define FRSKY_MSG_ID_VOLTAGE_LINK 0xFE
+#define FRSKY_MSG_LENGTH 9                // Frame length without leading and trailing 0x7E
+#define FRSKY_MSG_ID_VOLTAGE_LINK 0xFE    // A1 and A2 voltage, up- and downlink RSSI
 
 void FRSKY_handle_message(uint8_t* msg) {
   switch (msg[0]) {

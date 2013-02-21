@@ -7,7 +7,7 @@
 
 #include <EDIPTFT.h>
 
-#define _VERSION "V0.47"
+#define _VERSION "V0.51"
 
 const char *GPSFIX[] = {" NOFIX "," NOFIX "," 2DFIX "," 3DFIX "}; // Labels for GPS-status in status bar
 const char *TKLABEL[] = {"OVRV","FRSKY","PFD","MOD4","MOD5","TEST","SYST"}; // Touchkey labels
