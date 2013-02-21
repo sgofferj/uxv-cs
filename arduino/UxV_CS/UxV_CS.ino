@@ -191,7 +191,10 @@ boolean gcs_update()
         result=true;
       }
     }
-    if (!Serial2.available()) failcnt_frsky++;
+    if (!Serial2.available()) {
+      if (failcnt_frsky < 32000) failcnt_frsky++;
+      else failcnt_frsky = FAILCNT_MAX_FRSKY;
+    }
     while (Serial2.available())
     {
       uint8_t c = Serial2.read();
@@ -202,7 +205,8 @@ boolean gcs_update()
         result=true;
       }
       else {
-        failcnt_frsky++;
+        if (failcnt_frsky < 32000) failcnt_frsky++;
+        else failcnt_frsky = FAILCNT_MAX_FRSKY;
       }
     }
     return result;
