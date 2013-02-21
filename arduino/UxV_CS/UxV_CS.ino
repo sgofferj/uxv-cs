@@ -192,7 +192,7 @@ boolean gcs_update()
       }
     }
     if (!Serial2.available()) {
-      if (failcnt_frsky < 32000) failcnt_frsky++;
+      if (failcnt_frsky < 3000) failcnt_frsky++;
       else failcnt_frsky = FAILCNT_MAX_FRSKY;
     }
     while (Serial2.available())
@@ -205,7 +205,7 @@ boolean gcs_update()
         result=true;
       }
       else {
-        if (failcnt_frsky < 32000) failcnt_frsky++;
+        if (failcnt_frsky < 3000) failcnt_frsky++;
         else failcnt_frsky = FAILCNT_MAX_FRSKY;
       }
     }
@@ -485,6 +485,8 @@ void drawFRSKY() {
     ea.drawText(345,36,'R',"------");
     ea.drawText(465,36,'R',"------");
   }
+  sprintf(buf,"%5d",failcnt_frsky);
+  ea.drawText(465,186,'R',buf);
 }
 
 void initPFD() {
