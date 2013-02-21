@@ -10,8 +10,6 @@ Changelog
 ---- 20feb2013
 - started FrSky telemetry integration
 - integrated RSSI indicators into status-bar
-- optimizations
--- FrSky data is only polled when FrSky data is to be displayed on current screen
 
 ---- 17feb2013
 - minor improvements and bugfixes
