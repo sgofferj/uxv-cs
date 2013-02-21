@@ -7,6 +7,9 @@ http://stefan.gofferje.net/uxv-cs
 Changelog
 --------------------------------------------------------------------
 
+---- 21feb2013
+- added FrSky telemetry timeout counter
+
 ---- 20feb2013
 - started FrSky telemetry integration
 - integrated RSSI indicators into status-bar

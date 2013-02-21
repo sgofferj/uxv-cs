@@ -7,7 +7,7 @@
 
 #include <EDIPTFT.h>
 
-#define _VERSION "V0.51"
+#define _VERSION "V0.52"
 
 const char *GPSFIX[] = {" NOFIX "," NOFIX "," 2DFIX "," 3DFIX "}; // Labels for GPS-status in status bar
 const char *TKLABEL[] = {"OVRV","FRSKY","PFD","MOD4","MOD5","TEST","SYST"}; // Touchkey labels
@@ -64,6 +64,8 @@ unsigned long timer;
 #define EE_GCS_MODE 1  // GCS display mode = page which is displayed
 #define EE_GCS_UNITS 2 // Display units, 0=metric, 1=imperial land, 2=imperial nautic
 
+// Internal stuff
+#define FAILCNT_MAX_FRSKY 20 // After how many cycles without receiving no FrSky packet do we assume lost connection?
 
 // Stuff taken over from ArduStation - do we need this?
 unsigned long Latitude_Home=0;
@@ -108,6 +110,7 @@ uint8_t frsky_link_dn=0;    // FrSky link quality RX -> TX
 // Ground station stuff
 int status_mavlink=0; // Changes to 1 when a valid MAVLink package was received, 0 when no package or an invalid package was received
 int status_frsky=0;   // Changes to 1 when a valid FrSky package was received, 0 when no package or an invalid package was received
+int failcnt_frsky=0;  // Failure counter - counts the cycles in which no valid FrSky packet was received
 int GCS_MODE=0;       // GCS display mode = page which is displayed
 int GCS_UNITS=0;      // Display units, 0=metric, 1=imperial land, 2=imperial nautic
 
@@ -188,16 +191,18 @@ boolean gcs_update()
         result=true;
       }
     }
-    if ( (GCS_MODE == 1) || (GCS_MODE == 2) )
+    if (!Serial2.available()) failcnt_frsky++;
+    while (Serial2.available())
     {
-      while (Serial2.available())
-      {
-        uint8_t c = Serial2.read();
-        if (FRSKY_parse_char(c,frsky_msg)) {
-          FRSKY_handle_message(frsky_msg);
-          status_frsky=1;
-          result=true;
-        }
+      uint8_t c = Serial2.read();
+      if (FRSKY_parse_char(c,frsky_msg)) {
+        FRSKY_handle_message(frsky_msg);
+        failcnt_frsky=0;
+        status_frsky=1;
+        result=true;
+      }
+      else {
+        failcnt_frsky++;
       }
     }
     return result;
@@ -270,8 +275,14 @@ void drawStatusbar() {
     case CUST_MODE_INITIALISING :  { ea.setTextColor(EA_BLACK,EA_CYAN);      ea.drawText(116,3,'C'," INIT "); break; }
   }
 
-  drawRSSIm(220,2,frsky_link_up);
-  drawRSSI(243,2,frsky_link_dn);
+  if (failcnt_frsky < FAILCNT_MAX_FRSKY) {
+    drawRSSIm(220,2,frsky_link_up);
+    drawRSSI(243,2,frsky_link_dn);
+  }
+  else {
+    drawRSSIm(220,2,0);
+    drawRSSI(243,2,0);
+  }
 
   // FrSky package indicator
   if (status_frsky == 1) ea.setTextColor(EA_BLACK,EA_GREEN);
@@ -454,14 +465,22 @@ void drawFRSKY() {
   char buf2[16];
   ea.setTextFont(10);
   ea.setTextColor(EA_WHITE,EA_BLACK);
-  sprintf(buf,"%5d",frsky_link_up);
-  ea.drawText(105,36,'R',buf);
-  sprintf(buf,"%5d",frsky_link_dn/2);
-  ea.drawText(225,36,'R',buf);
-  dtostrf(frsky_rx_a1*0.0517647058824,2,2,buf);
-  ea.drawText(345,36,'R',buf);
-  dtostrf(frsky_rx_a2*0.0129411764706,2,2,buf);
-  ea.drawText(465,36,'R',buf);
+  if(failcnt_frsky < FAILCNT_MAX_FRSKY) {
+    sprintf(buf,"%6d",frsky_link_up);
+    ea.drawText(105,36,'R',buf);
+    sprintf(buf,"%6d",frsky_link_dn/2);
+    ea.drawText(225,36,'R',buf);
+    dtostrf(frsky_rx_a1*0.0517647058824,6,2,buf);
+    ea.drawText(345,36,'R',buf);
+    dtostrf(frsky_rx_a2*0.0129411764706,6,2,buf);
+    ea.drawText(465,36,'R',buf);
+  }
+  else {
+    ea.drawText(105,36,'R',"---");
+    ea.drawText(225,36,'R',"---");
+    ea.drawText(345,36,'R',"------");
+    ea.drawText(465,36,'R',"------");
+  }
 }
 
 void initPFD() {
