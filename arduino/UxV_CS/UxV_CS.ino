@@ -462,6 +462,8 @@ void initFRSKY() {
   ea.drawText(130,20,'L',"TELEM RSSI");
   ea.drawText(250,20,'L',"RX V");
   ea.drawText(370,20,'L',"A2 V");
+  ea.setTextColor(EA_GRASSGREEN,EA_BLACK);
+  ea.drawText(370,170,'L',"FAILCNT");
 }
 
 void drawFRSKY() {
@@ -485,6 +487,7 @@ void drawFRSKY() {
     ea.drawText(345,36,'R',"------");
     ea.drawText(465,36,'R',"------");
   }
+  ea.setTextColor(EA_GRASSGREEN,EA_BLACK);
   sprintf(buf,"%5d",failcnt_frsky);
   ea.drawText(465,186,'R',buf);
 }
