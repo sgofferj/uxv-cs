@@ -177,7 +177,6 @@ boolean gcs_update()
     status_mavlink=0;
     status_frsky=0;
     mavlink_message_t msg;
-    char frsky_msg [11];
     mavlink_status_t status;
 
     while (Serial1.available())
@@ -196,7 +195,7 @@ boolean gcs_update()
     while (Serial2.available())
     {
       uint8_t c = Serial2.read();
-      if (frsky.update(c,frsky_msg)) {
+      if (frsky.update(c)) {
         failcnt_frsky=0;
         status_frsky=1;
         result=true;
