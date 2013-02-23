@@ -6,6 +6,7 @@
 #include <GCS_MAVLink.h>
 
 #include <EDIPTFT.h>
+#include <FrSky.h>
 
 #define _VERSION "V0.52"
 
@@ -18,6 +19,7 @@ FastSerialPort2(Serial2);
 FastSerialPort3(Serial3);
 
 EDIPTFT ea(3,1);
+FrSky frsky;
 
 #define toRad(x) (x*PI)/180.0
 #define toDeg(x) (x*180.0)/PI
@@ -102,10 +104,6 @@ int gpsfix=0;               // GPS fix status, 0 = no fix, 1 = dead reckoning, 2
 int numSats=0;              // Number of satellites used in position fix
 unsigned int vbat=0;        // battery voltage
 unsigned long mav_utime=0;  // ??
-uint8_t frsky_rx_a1=0;      // FrSky receiver voltage
-uint8_t frsky_rx_a2=0;      // FrSky receiver analog input 2
-uint8_t frsky_link_up=0;    // FrSky link quality TX -> RX
-uint8_t frsky_link_dn=0;    // FrSky link quality RX -> TX
 
 // Ground station stuff
 int status_mavlink=0; // Changes to 1 when a valid MAVLink package was received, 0 when no package or an invalid package was received
@@ -179,12 +177,12 @@ boolean gcs_update()
     status_mavlink=0;
     status_frsky=0;
     mavlink_message_t msg;
-    uint8_t frsky_msg [11];
+    char frsky_msg [11];
     mavlink_status_t status;
 
     while (Serial1.available())
     {
-      uint8_t c = Serial1.read();
+      char c = Serial1.read();
       if(mavlink_parse_char(0, c, &msg, &status)) {
         gcs_handleMessage(&msg);
         status_mavlink = 1;
@@ -198,8 +196,7 @@ boolean gcs_update()
     while (Serial2.available())
     {
       uint8_t c = Serial2.read();
-      if (FRSKY_parse_char(c,frsky_msg)) {
-        FRSKY_handle_message(frsky_msg);
+      if (frsky.update(c,frsky_msg)) {
         failcnt_frsky=0;
         status_frsky=1;
         result=true;
@@ -280,8 +277,8 @@ void drawStatusbar() {
   }
 
   if (failcnt_frsky < FAILCNT_MAX_FRSKY) {
-    drawRSSIm(220,2,frsky_link_up);
-    drawRSSI(243,2,frsky_link_dn);
+    drawRSSIm(220,2,frsky.getLink_up());
+    drawRSSI(243,2,frsky.getLink_dn());
   }
   else {
     drawRSSIm(220,2,0);
@@ -472,13 +469,13 @@ void drawFRSKY() {
   ea.setTextFont(10);
   ea.setTextColor(EA_WHITE,EA_BLACK);
   if(failcnt_frsky < FAILCNT_MAX_FRSKY) {
-    sprintf(buf,"%6d",frsky_link_up);
+    sprintf(buf,"%6d",frsky.getLink_up());
     ea.drawText(105,36,'R',buf);
-    sprintf(buf,"%6d",frsky_link_dn/2);
+    sprintf(buf,"%6d",frsky.getLink_dn()/2);
     ea.drawText(225,36,'R',buf);
-    dtostrf(frsky_rx_a1*0.0517647058824,6,2,buf);
+    dtostrf(frsky.getRX_a1()*0.0517647058824,6,2,buf);
     ea.drawText(345,36,'R',buf);
-    dtostrf(frsky_rx_a2*0.0129411764706,6,2,buf);
+    dtostrf(frsky.getRX_a2()*0.0129411764706,6,2,buf);
     ea.drawText(465,36,'R',buf);
   }
   else {

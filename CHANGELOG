@@ -7,6 +7,9 @@ http://stefan.gofferje.net/uxv-cs
 Changelog
 --------------------------------------------------------------------
 
+---- 23feb2013
+- moved FrSky telemetry decoder to own library
+
 ---- 21feb2013
 - added FrSky telemetry timeout counter
 
