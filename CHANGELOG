@@ -7,6 +7,12 @@ http://stefan.gofferje.net/uxv-cs
 Changelog
 --------------------------------------------------------------------
 
+---- 24feb2013
+- started work on systems settings
+- added number of LiPo cells setting for alarm thresholds (EEPROM)
+- added LiPo voltage per cell warning threshold (EEPROM)
+- added LiPo voltage per cell alarm threshold (EEPROM)
+
 ---- 23feb2013
 - moved FrSky telemetry decoder to own library
 

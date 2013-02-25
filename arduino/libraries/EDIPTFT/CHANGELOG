@@ -21,6 +21,9 @@ Library for controlling Electronic Assembly eDIPTFT displays
      Boston, MA 02110-1301 USA
 ------------------------------------------------------------------------------
 
+---- 24feb2013
+- Added functions for touch switches and radio groups
+
 ---- 03feb2013
 - Smallprotocol works!!! Yay!
 - More functions added.

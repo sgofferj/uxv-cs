@@ -455,6 +455,29 @@ void EDIPTFT::defineTouchKey(int x1, int y1, int x2, int y2, char down, char up,
   sendData(helper,len+14);
 }
 
+void EDIPTFT::defineTouchSwitch(int x1, int y1, int x2, int y2, char down, char up, char* text) {
+  byte len = strlen(text);
+  byte i;
+  char helper [len+13];
+  char command [] = {
+    27,'A','K',
+    lowByte(x1),highByte(x1),lowByte(y1),highByte(y1),
+    lowByte(x2),highByte(x2),lowByte(y2),highByte(y2),
+    down,up
+  };
+  for (i=0;i<=12;i++) helper[i] = command[i];
+  for (i=0;i<=len;i++) helper[i+13] = text[i];
+
+  sendData(helper,len+14);
+}
+
+void EDIPTFT::setTouchSwitch(char code,char value) {
+  char command [] = {
+    27,'A','P',code,value
+  };
+  sendData(command,5);
+}
+
 void EDIPTFT::setTouchkeyColors(char n1, char n2, char n3, char s1, char s2, char s3) {
   char command [] = {
     27,'F','E',n1,n2,n3,s1,s2,s3
@@ -474,6 +497,13 @@ void EDIPTFT::setTouchkeyLabelColors(char nf,char sf) {
     27,'F','A',nf,sf
   };
   sendData(command,5);
+}
+
+void EDIPTFT::setTouchGroup(char group) {
+  char command [] = {
+    27,'A','R',group
+  };
+  sendData(command,4);
 }
 
 void EDIPTFT::removeTouchArea(char code,char n1) {

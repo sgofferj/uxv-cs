@@ -81,9 +81,12 @@ class EDIPTFT {
     void drawRect(int x1, int y1, int x2, int y2);
     void drawRectf(int x1, int y1, int x2, int y2, char color);
     void defineTouchKey(int x1, int y1, int x2, int y2, char down, char up, char* text);
+    void defineTouchSwitch(int x1, int y1, int x2, int y2, char down, char up, char* text);
+    void setTouchSwitch(char code,char value);
     void setTouchkeyColors(char n1, char n2, char n3, char s1, char s2, char s3);
     void setTouchkeyFont(char font);
     void setTouchkeyLabelColors(char nf,char sf);
+    void setTouchGroup(char group);
     void removeTouchArea(char code,char n1);
   private:
     int _port;

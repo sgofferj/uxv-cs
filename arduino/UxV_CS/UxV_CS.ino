@@ -8,7 +8,7 @@
 #include <EDIPTFT.h>
 #include <FrSky.h>
 
-#define _VERSION "V0.52"
+#define _VERSION "V0.54"
 
 const char *GPSFIX[] = {" NOFIX "," NOFIX "," 2DFIX "," 3DFIX "}; // Labels for GPS-status in status bar
 const char *TKLABEL[] = {"OVRV","FRSKY","PFD","MOD4","MOD5","TEST","SYST"}; // Touchkey labels
@@ -59,12 +59,16 @@ unsigned long timer;
 // Look and feel
 #define UI_BUTTON_ACTIVE EA_MINT,EA_BLACK,EA_MINT,EA_YELLOW,EA_BLACK,EA_YELLOW // Colors of touchbutton when page selected
 #define UI_BUTTON_INACTIVE EA_WHITE,EA_BLACK,EA_WHITE,EA_YELLOW,EA_BLACK,EA_YELLOW // Colors of touchbutton when page not selected
+#define UI_SWITCHGROUP EA_WHITE,EA_BLACK,EA_WHITE,EA_MINT,EA_BLACK,EA_MINT // Colors of switchgroups
 #define PFD_SUPP_THICK 4 // Thickness of +/- 45° pitch indicator lines in PFD attitude indicator (pixels)
 
 // EEPROM storage
-#define EE_BACKLIGHT 0 // Backlight level
-#define EE_GCS_MODE 1  // GCS display mode = page which is displayed
-#define EE_GCS_UNITS 2 // Display units, 0=metric, 1=imperial land, 2=imperial nautic
+#define EE_BACKLIGHT 0     // Backlight level
+#define EE_GCS_MODE 1      // GCS display mode = page which is displayed
+#define EE_GCS_UNITS 2     // Display units, 0=metric, 1=imperial land, 2=imperial nautic
+#define EE_GCS_LIPOCELLS 3 // Number of LiPo cells in the UV for alarm threshold
+#define EE_GCS_LIPOWARN 4  // LiPo warning threshold in 10mV offset 2.0V, e.g. 50 = 2.5V, 100 = 3.0V, etc
+#define EE_GCS_LIPOALARM 5 // LiPo warning threshold in 10mV offset 2.0V, e.g. 50 = 2.5V, 100 = 3.0V, etc
 
 // Internal stuff
 #define FAILCNT_MAX_FRSKY 20 // After how many cycles without receiving no FrSky packet do we assume lost connection?
@@ -109,8 +113,11 @@ unsigned long mav_utime=0;  // ??
 int status_mavlink=0; // Changes to 1 when a valid MAVLink package was received, 0 when no package or an invalid package was received
 int status_frsky=0;   // Changes to 1 when a valid FrSky package was received, 0 when no package or an invalid package was received
 int failcnt_frsky=0;  // Failure counter - counts the cycles in which no valid FrSky packet was received
-int GCS_MODE=0;       // GCS display mode = page which is displayed
-int GCS_UNITS=0;      // Display units, 0=metric, 1=imperial land, 2=imperial nautic
+unsigned char GCS_MODE=0;       // GCS display mode = page which is displayed
+unsigned char GCS_UNITS=0;      // Display units, 0=metric, 1=imperial land, 2=imperial nautic
+unsigned char GCS_LIPOCELLS=0;  // Number of LiPo cells in the UV for alarm threshold
+unsigned char GCS_LIPOWARN=0;   // LiPo warning threshold in 10mV offset 2.0V, e.g. 50 = 2.5V, 100 = 3.0V, etc
+unsigned char GCS_LIPOALARM=0;   // LiPo warning threshold in 10mV offset 2.0V, e.g. 50 = 2.5V, 100 = 3.0V, etc
 
 void setup() {
   Serial.begin(57600);
@@ -123,11 +130,14 @@ void setup() {
   
   GCS_MODE = EEPROM.read(EE_GCS_MODE);
   GCS_UNITS = EEPROM.read(EE_GCS_UNITS);
+  GCS_LIPOCELLS = EEPROM.read(EE_GCS_LIPOCELLS);
+  GCS_LIPOWARN = EEPROM.read(EE_GCS_LIPOWARN);
+  GCS_LIPOALARM = EEPROM.read(EE_GCS_LIPOALARM);
   
   drawSplash();
   delay(2000);
   
-  ea.defineTouchKey(445,3,479,14,0,10," "); // define touchkey for unit change
+  ea.defineTouchKey(445,3,479,14,10,0," "); // define touchkey for unit change
   setMode(GCS_MODE);
 }
 
@@ -137,6 +147,7 @@ void loop() {
       case 1 : { drawOVRV(); break; }
       case 2 : { drawFRSKY(); break; }
       case 3 : { drawPFD(); break; }
+      case 7 : { drawSystem(); break; }
     }
     drawStatusbar();
   }
@@ -163,7 +174,37 @@ void parseSerial() {
         case 10 : {
           if (GCS_UNITS < 2) GCS_UNITS ++;
           else GCS_UNITS = 0;
-          EEPROM.write(EE_GCS_UNITS,GCS_UNITS);
+          EEPROM.write(EE_GCS_LIPOCELLS,GCS_LIPOCELLS);
+          break;
+        }
+        case 71 : {
+          if (GCS_LIPOCELLS >1) GCS_LIPOCELLS--;
+          EEPROM.write(EE_GCS_LIPOCELLS,GCS_LIPOCELLS);
+          break;
+        }
+        case 72 : {
+          if (GCS_LIPOCELLS <12) GCS_LIPOCELLS++;
+          EEPROM.write(EE_GCS_LIPOCELLS,GCS_LIPOCELLS);
+          break;
+        }
+        case 73 : {
+          if (GCS_LIPOWARN >0) GCS_LIPOWARN--;
+          EEPROM.write(EE_GCS_LIPOWARN,GCS_LIPOWARN);
+          break;
+        }
+        case 74 : {
+          if (GCS_LIPOWARN <255) GCS_LIPOWARN++;
+          EEPROM.write(EE_GCS_LIPOWARN,GCS_LIPOWARN);
+          break;
+        }
+        case 75 : {
+          if (GCS_LIPOALARM >0) GCS_LIPOALARM--;
+          EEPROM.write(EE_GCS_LIPOALARM,GCS_LIPOALARM);
+          break;
+        }
+        case 76 : {
+          if (GCS_LIPOALARM <255) GCS_LIPOALARM++;
+          EEPROM.write(EE_GCS_LIPOALARM,GCS_LIPOALARM);
           break;
         }
       }
@@ -340,25 +381,25 @@ void drawButtons() {
   // Define and draw new touchkeys
   if (GCS_MODE==1) ea.setTouchkeyColors(UI_BUTTON_ACTIVE);
   else ea.setTouchkeyColors(UI_BUTTON_INACTIVE);
-  ea.defineTouchKey(  0,248, 60,272,0,1,(char*)TKLABEL[0]);
+  ea.defineTouchKey(  0,248, 60,272,1,0,(char*)TKLABEL[0]);
   if (GCS_MODE==2) ea.setTouchkeyColors(UI_BUTTON_ACTIVE);
   else ea.setTouchkeyColors(UI_BUTTON_INACTIVE);
-  ea.defineTouchKey( 70,248,130,272,0,2,(char*)TKLABEL[1]);
+  ea.defineTouchKey( 70,248,130,272,2,0,(char*)TKLABEL[1]);
   if (GCS_MODE==3) ea.setTouchkeyColors(UI_BUTTON_ACTIVE);
   else ea.setTouchkeyColors(UI_BUTTON_INACTIVE);
-  ea.defineTouchKey(140,248,200,272,0,3,(char*)TKLABEL[2]);
+  ea.defineTouchKey(140,248,200,272,3,0,(char*)TKLABEL[2]);
   if (GCS_MODE==4) ea.setTouchkeyColors(UI_BUTTON_ACTIVE);
   else ea.setTouchkeyColors(UI_BUTTON_INACTIVE);
-  ea.defineTouchKey(210,248,270,272,0,4,(char*)TKLABEL[3]);
+  ea.defineTouchKey(210,248,270,272,4,0,(char*)TKLABEL[3]);
   if (GCS_MODE==5) ea.setTouchkeyColors(UI_BUTTON_ACTIVE);
   else ea.setTouchkeyColors(UI_BUTTON_INACTIVE);
-  ea.defineTouchKey(280,248,340,272,0,5,(char*)TKLABEL[4]);
+  ea.defineTouchKey(280,248,340,272,5,0,(char*)TKLABEL[4]);
   if (GCS_MODE==6) ea.setTouchkeyColors(UI_BUTTON_ACTIVE);
   else ea.setTouchkeyColors(UI_BUTTON_INACTIVE);
-  ea.defineTouchKey(350,248,410,272,0,6,(char*)TKLABEL[5]);
+  ea.defineTouchKey(350,248,410,272,6,0,(char*)TKLABEL[5]);
   if (GCS_MODE==7) ea.setTouchkeyColors(UI_BUTTON_ACTIVE);
   else ea.setTouchkeyColors(UI_BUTTON_INACTIVE);
-  ea.defineTouchKey(420,248,480,272,0,7,(char*)TKLABEL[6]);
+  ea.defineTouchKey(420,248,480,272,7,0,(char*)TKLABEL[6]);
 }  
 
 void drawSplash() {
@@ -410,12 +451,12 @@ void drawOVRV() {
     }
     ea.drawText(125,36,'C',buf);
     if (longitude < 0) {
-      dtostrf(-1*longitude/1e7,2,6,buf2);
+      dtostrf(-1*longitude/1e7,9,6,buf2);
       strcpy(buf,"W ");
       strcat(buf,buf2);
     }
     else {
-      dtostrf(longitude/1e7,2,6,buf2);
+      dtostrf(longitude/1e7,9,6,buf2);
       strcpy(buf,"E ");
       strcat(buf,buf2);
     }
@@ -458,8 +499,6 @@ void initFRSKY() {
   ea.drawText(130,20,'L',"TELEM RSSI");
   ea.drawText(250,20,'L',"RX V");
   ea.drawText(370,20,'L',"A2 V");
-  ea.setTextColor(EA_GRASSGREEN,EA_BLACK);
-  ea.drawText(370,170,'L',"FAILCNT");
 }
 
 void drawFRSKY() {
@@ -483,9 +522,6 @@ void drawFRSKY() {
     ea.drawText(345,36,'R',"------");
     ea.drawText(465,36,'R',"------");
   }
-  ea.setTextColor(EA_GRASSGREEN,EA_BLACK);
-  sprintf(buf,"%5d",failcnt_frsky);
-  ea.drawText(465,186,'R',buf);
 }
 
 void initPFD() {
@@ -547,7 +583,6 @@ void destroyPFD() {
 }
 
 void initSystem() {
-  char buf[32];
   ea.defineBargraph ('O',1,430,24,470,220,0,100,5);
   ea.setTextFont(5);
   ea.setTextColor(EA_WHITE,EA_BLACK);
@@ -555,14 +590,43 @@ void initSystem() {
   ea.updateBargraph(1,66);
   ea.makeBargraphTouch(1);
   ea.linkBargraphLight(1);
+  ea.setTouchkeyColors(UI_SWITCHGROUP);
+  ea.setTouchkeyFont(6);
+  ea.drawText(0,24,'L',"LiPo cells");
+  ea.defineTouchKey(0,  38,30, 68,71,0,"-");
+  ea.defineTouchKey(68, 38,98, 68,72,0,"+");
+  ea.drawText(105,24,'L',"LiPo warn V/cell");
+  ea.defineTouchKey(105,38,135,68,73,0,"-");
+  ea.defineTouchKey(208,38,238,68,74,0,"+");
+  ea.drawText(245,24,'L',"LiPo alarm V/cell");
+  ea.defineTouchKey(245,38,275,68,75,0,"-");
+  ea.defineTouchKey(348,38,378,68,76,0,"+");
+}
+
+void drawSystem() {
+  char buf[32];
+  ea.setTextFont(10);
+  ea.setTextColor(EA_WHITE,EA_BLACK);
+  sprintf(buf,"%02d",GCS_LIPOCELLS);
+  ea.drawText(49,40,'C',buf);
+  dtostrf((GCS_LIPOWARN/100.0)+2.0,4,2,buf);
+  ea.drawText(170,40,'C',buf);
+  dtostrf((GCS_LIPOALARM/100.0)+2.0,4,2,buf);
+  ea.drawText(310,40,'C',buf);
   ea.setTextFont(5);
   ea.setTextColor(EA_YELLOW,EA_BLACK);
-  sprintf(buf,"Free RAM: %d bytes",freeRam());
-  ea.drawText(0,24,'L',buf);
+  sprintf(buf,"RAM: %d bytes",freeRam());
+  ea.drawText(0,225,'L',buf);
 }
 
 void destroySystem() {
   ea.deleteBargraph(1,1);
+  ea.removeTouchArea(71,1);
+  ea.removeTouchArea(72,1);
+  ea.removeTouchArea(73,1);
+  ea.removeTouchArea(74,1);
+  ea.removeTouchArea(75,1);
+  ea.removeTouchArea(76,1);
 }
 
 void drawATTI(int x, int y, int pitch, int roll) {
