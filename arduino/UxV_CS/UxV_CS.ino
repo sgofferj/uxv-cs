@@ -150,6 +150,10 @@ void loop() {
       case 7 : { drawSystem(); break; }
     }
     drawStatusbar();
+  } else {                             // Some screens are always updated, liek system settings
+    switch (GCS_MODE) {
+      case 7 : { drawSystem(); break; }
+    }
   }
   if ((status_mavlink == 1) && (!gcs_update())) drawStatusbar(); // When no valid MAVLink package was received but the status still shows 1,
                                                                  // update status bar, so the indicator goes red.
@@ -260,6 +264,7 @@ void setMode(int mode) {
   ea.clear();                             // clear the display
 
   drawButtons();                          // draw the touchkeys
+  drawStatusbar();
 
   switch (mode) {                         // Finally, if the new mode has some display objects to initialize, do it
     case 1 : { initOVRV(); break; }
